@@ -1,4 +1,5 @@
-<html>
+<!doctype html>
+<html lang="en">
 <title>
 	SimplePCs
 </title>
@@ -7,7 +8,57 @@
 		SimplePCs
 	</b>
 </head>
+<br />
+<br />
 <body>
-	Coming soon...
+	<div z-index: 4; id="initial_text">
+		Coming soon...
+		<br />
+		and other text..
+	</div>
+	<br />
+<div id="dynamic_content"></div>
+<script>
+function count(num) {
+	let ret = "";
+	ret = "window width: "+window.innerWidth;
+	ret += "<br />";
+	ret += "window height: "+window.innerHeight;
+	ret += "<br />";
+
+	ret += "<div style='z-index: 1; position: relative; margin-bottom: 25px; width: 700px; height: 800px; background-color: rgba(255, 0, 0, 0.8);'></div>";
+	ret += "<div style='top: -450px; z-index: 2; position: relative; margin-bottom: 25px; margin-left: 65px; width: 700px; height: 800px; background-color: rgba(255, 240, 40, 0.7);'></div>";
+	ret += "<div style='top: -900px; z-index: 3; position: relative; margin-bottom: 45px; margin-left: 135px; width: 700px; height: 800px; background-color: rgba(0, 240, 40, 0.6);'></div>";
+	ret += "<div style='top: -1540px; z-index: 5; position: relative; margin-bottom: 50px; margin-left: 100px'>";
+	ret += "<b>My text over rectangles</b></div>";
+	return ret;
+}
+
+function handleResize() {
+    // Call your function when the window size changes
+    document.body.innerHTML = count();
+}
+
+// Attach the handleResize function to the window resize event
+window.onresize = handleResize;
+
+// Call the function initially
+
+function update_text() {
+	// Get the target element by its ID
+	var page_elem = document.getElementById("dynamic_content");
+
+	// Check if the target element exists
+	if (page_elem) {
+		// Update the content of the target element
+		page_elem.innerHTML = count(200);
+	} else {
+		console.error("Target element not found.");
+	}
+}
+
+handleResize();
+update_text();
+</script>
 </body>
 </html>
