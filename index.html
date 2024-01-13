@@ -1,64 +1,222 @@
 <!doctype html>
 <html lang="en">
-<title>
-	SimplePCs
-</title>
 <head>
-	<b>
-		SimplePCs
-	</b>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SimplePCs</title>
+	<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">-->
+    <style>
+		body {
+			font-family: 'Arial', sans-serif;
+			color: white;
+		}
+
+        .font-roboto {
+            font-family: 'Roboto', sans-serif;
+			color: white;
+        }
+
+		.font-sans-serif {
+			font-family: 'Arial', sans-serif;
+			color: white;
+		}
+
+		h1, h2, h3 {
+			font-family: 'Georgia', serif;
+			color: white;
+		}
+
+		.left {
+			position: fixed;
+			width: 150px;
+			background-color: rgb(10, 10, 255);
+			border: 2px;
+			padding: 20px;
+			flex-grow: 1;
+			height: 100%;
+		}
+		
+		.container {
+			margin-left: 192px;
+			display: flex;
+		}
+
+		.column1 {
+			width: 100%;
+			padding: 20px;
+			background-color: rgb(100, 10, 55);
+			background-color: rgb(10, 10, 255);
+		}
+
+		.column2 {
+			background-color: rgb(100, 10, 255);
+			background-color: rgb(10, 10, 255);
+			height: auto;
+		}
+
+		a {
+			color: white;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: cyan;
+		}
+    </style>
 </head>
-<br />
-<br />
 <body>
-	<div z-index: 4; id="initial_text">
-		Coming soon...
-		<br />
-		and other text..
-	</div>
+	<div class="left">
+	<h1 style="font-size: 24px; text-align: center;">
+		<b> SimplePCs </b>
+	</h1>
+	<h2 style="font-size: 20px; text-decoration: underline;">
 	<br />
-<div id="dynamic_content"></div>
+	<br />
+	<br />
+	<ul>
+		<li><a href="#head">Home</a></li>
+		<br />
+		<br />
+		<br />
+		<br />
+		<li><a href="#initial_text">Pricing</a></li>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<li><a href="#initial_text">About</a></li>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<li><a href="mailto:help@simplepcs.tech">Email</a></li>
+	</ul>
+	</h2>
+	</div>
+	<div class="container" style="z-index: 4; position: relative;" id="initial_text">
+		<div class="column1">
+			<h1>
+				Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
+			</h1>
+			<p style="font-size: 30px;">
+				Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
+			</p>
+			<br />
+			<p class="font-sans-serif" style="font-size: 30px;">
+				Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
+			</p>
+		</div>
+		<div class="column2" id="dynamic_content" style='padding-right: 150px; padding-left: 250px;'></div>
+	</div>
 <script>
-function count(num) {
+////////////////////////////////////////////////////////////////////////////////////
+
+var g_image_names = [
+	"laptop_picture_wp.jpg"
+];
+
+class image_info {
+	constructor() {
+		this.width = 100;
+		this.height = 0;
+		this.ratio = 0;
+		this.id = "";
+	}
+
+	set_dimensions(w, h) {
+		this.width = w;
+		this.height = h;
+		this.ratio = w/h;
+	}
+}
+
+var g_images = [ ];
+
+function render_rect_image() {
 	let ret = "";
-	ret = "window width: "+window.innerWidth;
+
+	let iratio = 350/1916;
+	//let rratio = 750/1916;
+	let r_width = iratio*window.innerWidth+50;
+	let r_height = 800;//iratio*window.innerWidth+50;
+
+	/*ret = "window width: "+window.innerWidth;
 	ret += "<br />";
 	ret += "window height: "+window.innerHeight;
-	ret += "<br />";
+	ret += "<br />";*/
 
-	ret += "<div style='z-index: 1; position: relative; margin-bottom: 25px; width: 700px; height: 800px; background-color: rgba(255, 0, 0, 0.8);'></div>";
-	ret += "<div style='top: -450px; z-index: 2; position: relative; margin-bottom: 25px; margin-left: 65px; width: 700px; height: 800px; background-color: rgba(255, 240, 40, 0.7);'></div>";
-	ret += "<div style='top: -900px; z-index: 3; position: relative; margin-bottom: 45px; margin-left: 135px; width: 700px; height: 800px; background-color: rgba(0, 240, 40, 0.6);'></div>";
-	ret += "<div style='top: -1540px; z-index: 5; position: relative; margin-bottom: 50px; margin-left: 100px'>";
-	ret += "<b>My text over rectangles</b></div>";
+	ret += "<div style='z-index: 1; position: relative; margin-bottom: 25px; height: 800px; background-color: rgba(255, 0, 0, 0.8); top: 40px;"+"width: "+r_width+"px;'></div>";
+//	ret += "<div style='top: -450px; z-index: 2; position: relative; margin-bottom: 25px; margin-left: 65px; width: 700px; height: 800px; background-color: rgba(255, 240, 40, 0.7);'></div>";
+//	ret += "<div style='top: -1600px; z-index: 3; position: relative; margin-bottom: 45px; margin-left: 135px; width: 700px; height: 800px; background-color: rgba(0, 240, 40, 0.6);'></div>";
+//	ret += "<div style='top: -1940px; z-index: 5; position: relative; margin-bottom: 50px; margin-left: 100px'>";
+
+	//image = document.getElementById(g_images[0].id);
+	image = g_images[0];
+	if (!image) {
+		console.log("Error image could not be found");
+		return -1;
+	}
+	ret += "<img id='"+image.id+"' src='"+image.id+"' alt='older person using a laptop computer'; style='position: relative; margin-left: 155px; z-index: 6; width: "+(iratio*window.innerWidth)+"px; height: auto; top: "+(35-r_height)+"px; margin-left: 35px;'>";
+	console.log("image width: "+image.width+", image height: "+image.height);
+	console.log("*"+ret+"*");
 	return ret;
 }
 
-function handleResize() {
-    // Call your function when the window size changes
-    document.body.innerHTML = count();
-}
-
-// Attach the handleResize function to the window resize event
-window.onresize = handleResize;
-
-// Call the function initially
+window.onresize = () => update_text();
 
 function update_text() {
 	// Get the target element by its ID
 	var page_elem = document.getElementById("dynamic_content");
 
-	// Check if the target element exists
-	if (page_elem) {
-		// Update the content of the target element
-		page_elem.innerHTML = count(200);
-	} else {
+	if (page_elem)
+		page_elem.innerHTML = render_rect_image();
+	else 
 		console.error("Target element not found.");
-	}
 }
 
-handleResize();
+/*
+* Load all images (and do not display them) with a width of 100, then determine the ratio based on height
+*/
+function init() {
+	let i = 0;
+	let ld = "";
+
+	// Initial image load
+	for (i = 0; i < g_image_names.length; i++) {
+		g_images.push(new image_info());
+		g_images[i].id = g_image_names[i];
+		ld = "<img id='"+g_image_names[i]+"' src='"+g_image_names[i]+"' style='width: 100px; height: auto; display: none;'>";
+	}
+
+	var page_elem = document.getElementById("dynamic_content");
+	if (page_elem) {
+		page_elem.innerHTML = ld;
+		console.log("displayed image with: "+ld);
+	} else {
+		console.error("initial load failed");
+		return;
+	}
+
+	// Grab image details
+	for (i = 0; i < g_images.length; i++) {
+		image = document.getElementById(g_images[i].id);
+		if (image) {
+			g_images[i].set_dimensions(image.width, image.height);
+			console.log("image.height: "+image.height+"\n-----------------\n");
+			console.log(g_images[i].width+", "+g_images[i].height);
+		} else {
+			console.log("could not find image with id: "+g_images[i].id);
+		}
+	}
+	console.log("init successful");
+}
+
+init();
 update_text();
+
+////////////////////////////////////////////////////////////////////////////////////
 </script>
 </body>
 </html>
