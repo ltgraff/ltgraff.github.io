@@ -97,7 +97,7 @@
 	</h2>
 	</div>
 	<div class="container" style="z-index: 4; position: relative;" id="initial_text">
-		<div class="column1">
+		<div class="column1" style='padding-right: 70px;'>
 			<h1>
 				Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
 			</h1>
@@ -109,7 +109,7 @@
 				Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
 			</p>
 		</div>
-		<div class="column2" id="dynamic_content0" style='padding-right: 150px; padding-left: 250px; padding-top: 100px;'></div>
+		<div class="column2" id="dynamic_content0" style='padding-right: 70px; padding-left: 50px; padding-top: 100px; background-color: rgb(200, 100, 100);'></div>
 	</div>
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
@@ -153,6 +153,30 @@ function render_rect_image(image, layout) {
 
 	let width = image.screen_ratio*window.innerWidth;
 	let height = image.size_ratio*width;
+	let hmult = 1;
+	let wmult = 1;
+
+	switch (layout) {
+		case 0:
+		console.log("layout 0");
+		break;
+
+		case 1:
+		hmult = -1;
+		console.log("layout 1");
+		break;
+
+		case 2:
+		console.log("layout 2");
+		wmult = -1;
+		hmult = -1;
+		break;
+
+		default:
+		console.log("layout: (default): "+layout);
+		wmult = -1;
+		break;
+	}
 
 	console.log("test json: "+g_image_names[0].id);
 	ret += "<img id='"+image.id+"' src='"+image.id+"' alt='"+image.alt+"'; style='position: relative; margin-left: 0; z-index: 9; width: "+width+"px; height: "+height+"px;'>\n";
@@ -160,19 +184,19 @@ function render_rect_image(image, layout) {
 	// Black outline
 	ret += "<div style='position: relative; margin-left: 0px; z-index: 4; width: "+
 			(width+4)+"px; height: "+(height+4)+"px; background-color: rgba(0, 0, 0, 1.0); top: "+
-			(-(height+6))+"px; left: "+(-2)+ "px;'></div>\n";
+			(-(height+6))+"px; left: "+(-2)+"px;'></div>\n";
 	// Rect1
 	ret += "<div style='position: relative; margin-left: 0px; z-index: 3; width: "+
 			width+"px; height: "+height+"px; background-color: rgba(255, 0, 0, 0.7); top: "+
-			(-((height*2)+24))+"px; left: "+24+ "px;'></div>\n";
+			(-((height*2)+(24*hmult)))+"px; left: "+(24*wmult)+"px;'></div>\n";
 	// Rect2
 	ret += "<div style='position: relative; margin-left: 0px; z-index: 2; width: "+
 			width+"px; height: "+height+"px; background-color: rgba(0, 255, 0, 0.6); top: "+
-			(-((height*3)+44))+"px; left: "+44+ "px;'></div>\n";
+			(-((height*3)+(44*hmult)))+"px; left: "+(44*wmult)+"px;'></div>\n";
 	// Rect3
 	ret += "<div style='position: relative; margin-left: 0px; z-index: 1; width: "+
 			width+"px; height: "+height+"px; background-color: rgba(90, 90, 55, 0.5); top: "+
-			(-((height*4)+64))+"px; left: "+64+ "px;'></div>\n";
+			(-((height*4)+(64*hmult)))+"px; left: "+(64*wmult)+"px;'></div>\n";
 
 	console.log("!! image width: "+image.width+", image height: "+image.height);
 	console.log("!! rect width: "+width+", rect height: "+height);
@@ -220,7 +244,7 @@ function init() {
 		ld = "<img id='"+g_image_names[i].id+"' src='"+g_image_names[i].id+"' style='width: 100px; height: auto; display: none;'>";
 		page_elem = document.getElementById("dynamic_content"+i);
 		if (!page_elem) {
-			console.error("dynamic_content"+i+" could not be found at init");
+			console.log("dynamic_content"+i+" could not be found at init");
 			break;
 		}
 		page_elem.innerHTML = ld;
