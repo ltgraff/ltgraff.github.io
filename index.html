@@ -9,6 +9,7 @@
 		body {
 			font-family: 'Arial', sans-serif;
 			color: white;
+			background-color: rgb(10, 10, 255);
 		}
 
         .font-roboto {
@@ -66,7 +67,7 @@
 </head>
 <body>
 	<div class="left">
-	<h1 style="font-size: 24px; text-align: center;">
+	<h1 style="font-size: 24px; text-align: center; overflow: hidden;">
 		<b> SimplePCs </b>
 	</h1>
 	<h2 style="font-size: 20px; text-decoration: underline;">
@@ -108,73 +109,98 @@
 				Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
 			</p>
 		</div>
-		<div class="column2" id="dynamic_content" style='padding-right: 150px; padding-left: 250px;'></div>
+		<div class="column2" id="dynamic_content0" style='padding-right: 150px; padding-left: 250px; padding-top: 100px;'></div>
 	</div>
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
 
+// List of image details
+// screen_ratio is how wide the image should be on a 1920 screen
 var g_image_names = [
-	"laptop_picture_wp.jpg"
+	{
+		id: "laptop_picture_wp.jpg",
+		alt: "older person using a laptop computer",
+		screen_ratio: 380/1920
+	},
+	{
+		id: "2laptop_picture_wp.jpg",
+		alt: "2older person using a laptop computer",
+		screen_ratio: 350/1920
+	}
 ];
 
 class image_info {
 	constructor() {
 		this.width = 100;
 		this.height = 0;
-		this.ratio = 0;
+		this.size_ratio = 0;
 		this.id = "";
+		this.alt = "";
+		this.screen_ratio = 0;
 	}
 
 	set_dimensions(w, h) {
 		this.width = w;
 		this.height = h;
-		this.ratio = w/h;
+		this.size_ratio = h/w;
 	}
 }
 
 var g_images = [ ];
 
-function render_rect_image() {
+function render_rect_image(image, layout) {
 	let ret = "";
 
-	let iratio = 350/1916;
-	//let rratio = 750/1916;
-	let r_width = iratio*window.innerWidth+50;
-	let r_height = 800;//iratio*window.innerWidth+50;
+	let width = image.screen_ratio*window.innerWidth;
+	let height = image.size_ratio*width;
 
-	/*ret = "window width: "+window.innerWidth;
-	ret += "<br />";
-	ret += "window height: "+window.innerHeight;
-	ret += "<br />";*/
+	console.log("test json: "+g_image_names[0].id);
+	ret += "<img id='"+image.id+"' src='"+image.id+"' alt='"+image.alt+"'; style='position: relative; margin-left: 0; z-index: 9; width: "+width+"px; height: "+height+"px;'>\n";
 
-	ret += "<div style='z-index: 1; position: relative; margin-bottom: 25px; height: 800px; background-color: rgba(255, 0, 0, 0.8); top: 40px;"+"width: "+r_width+"px;'></div>";
-//	ret += "<div style='top: -450px; z-index: 2; position: relative; margin-bottom: 25px; margin-left: 65px; width: 700px; height: 800px; background-color: rgba(255, 240, 40, 0.7);'></div>";
-//	ret += "<div style='top: -1600px; z-index: 3; position: relative; margin-bottom: 45px; margin-left: 135px; width: 700px; height: 800px; background-color: rgba(0, 240, 40, 0.6);'></div>";
-//	ret += "<div style='top: -1940px; z-index: 5; position: relative; margin-bottom: 50px; margin-left: 100px'>";
+	// Black outline
+	ret += "<div style='position: relative; margin-left: 0px; z-index: 4; width: "+
+			(width+4)+"px; height: "+(height+4)+"px; background-color: rgba(0, 0, 0, 1.0); top: "+
+			(-(height+6))+"px; left: "+(-2)+ "px;'></div>\n";
+	// Rect1
+	ret += "<div style='position: relative; margin-left: 0px; z-index: 3; width: "+
+			width+"px; height: "+height+"px; background-color: rgba(255, 0, 0, 0.7); top: "+
+			(-((height*2)+24))+"px; left: "+24+ "px;'></div>\n";
+	// Rect2
+	ret += "<div style='position: relative; margin-left: 0px; z-index: 2; width: "+
+			width+"px; height: "+height+"px; background-color: rgba(0, 255, 0, 0.6); top: "+
+			(-((height*3)+44))+"px; left: "+44+ "px;'></div>\n";
+	// Rect3
+	ret += "<div style='position: relative; margin-left: 0px; z-index: 1; width: "+
+			width+"px; height: "+height+"px; background-color: rgba(90, 90, 55, 0.5); top: "+
+			(-((height*4)+64))+"px; left: "+64+ "px;'></div>\n";
 
-	//image = document.getElementById(g_images[0].id);
-	image = g_images[0];
-	if (!image) {
-		console.log("Error image could not be found");
-		return -1;
-	}
-	ret += "<img id='"+image.id+"' src='"+image.id+"' alt='older person using a laptop computer'; style='position: relative; margin-left: 155px; z-index: 6; width: "+(iratio*window.innerWidth)+"px; height: auto; top: "+(35-r_height)+"px; margin-left: 35px;'>";
-	console.log("image width: "+image.width+", image height: "+image.height);
-	console.log("*"+ret+"*");
+	console.log("!! image width: "+image.width+", image height: "+image.height);
+	console.log("!! rect width: "+width+", rect height: "+height);
+	console.log("!! *"+ret+"*");
 	return ret;
 }
 
-window.onresize = () => update_text();
+function render_all_images() {
+	let page_elem;
+	let image;
 
-function update_text() {
-	// Get the target element by its ID
-	var page_elem = document.getElementById("dynamic_content");
-
-	if (page_elem)
-		page_elem.innerHTML = render_rect_image();
-	else 
-		console.error("Target element not found.");
+	for (let i = 0; i < g_images.length; i++) {
+		page_elem = document.getElementById("dynamic_content"+i);
+		if (!page_elem) {
+			console.log("Error: dynamic_content"+i+" could not be found");
+			return 0;
+		}
+		image = g_images[i];
+		if (!image) {
+			console.log("Error: image: "+g_images[i].id+" could not be found");
+			return 0;
+		}
+		page_elem.innerHTML = render_rect_image(image, 0);
+	}
+	return 1;
 }
+
+window.onresize = () => render_all_images();
 
 /*
 * Load all images (and do not display them) with a width of 100, then determine the ratio based on height
@@ -182,21 +208,23 @@ function update_text() {
 function init() {
 	let i = 0;
 	let ld = "";
+	let page_elem;
 
 	// Initial image load
 	for (i = 0; i < g_image_names.length; i++) {
+		console.log(i+": "+g_image_names[i].id+"  (image id) screen_ratio: "+g_image_names[i].screen_ratio);
 		g_images.push(new image_info());
-		g_images[i].id = g_image_names[i];
-		ld = "<img id='"+g_image_names[i]+"' src='"+g_image_names[i]+"' style='width: 100px; height: auto; display: none;'>";
-	}
-
-	var page_elem = document.getElementById("dynamic_content");
-	if (page_elem) {
+		g_images[i].id = g_image_names[i].id;
+		g_images[i].screen_ratio = g_image_names[i].screen_ratio;
+		g_images[i].alt = g_image_names[i].alt;
+		ld = "<img id='"+g_image_names[i].id+"' src='"+g_image_names[i].id+"' style='width: 100px; height: auto; display: none;'>";
+		page_elem = document.getElementById("dynamic_content"+i);
+		if (!page_elem) {
+			console.error("dynamic_content"+i+" could not be found at init");
+			break;
+		}
 		page_elem.innerHTML = ld;
 		console.log("displayed image with: "+ld);
-	} else {
-		console.error("initial load failed");
-		return;
 	}
 
 	// Grab image details
@@ -211,10 +239,11 @@ function init() {
 		}
 	}
 	console.log("init successful");
+	return 1;
 }
 
 init();
-update_text();
+render_all_images();
 
 ////////////////////////////////////////////////////////////////////////////////////
 </script>
