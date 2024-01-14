@@ -7,12 +7,12 @@
 	<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">-->
     <style>
 		body {
-			font-family: 'Arial', sans-serif;
-			color: white;
-			background-color: rgb(10, 10, 255);
-		}
+            font-family: Arial, sans-serif;
+			color: red;
+			margin: 0;
+        }
 
-        .font-roboto {
+		.font-roboto {
             font-family: 'Roboto', sans-serif;
 			color: white;
         }
@@ -27,32 +27,33 @@
 			color: white;
 		}
 
-		.left {
-			position: fixed;
-			width: 150px;
-			background-color: rgb(10, 10, 255);
-			border: 2px;
-			padding: 20px;
-			flex-grow: 1;
-			height: 100%;
+		.container_rows {
+			display: flex;
+			flex-direction: column;
 		}
-		
-		.container {
-			margin-left: 192px;
+
+		.container_columns {
 			display: flex;
 		}
 
-		.column1 {
-			width: 100%;
-			padding: 20px;
-			background-color: rgb(100, 10, 55);
-			background-color: rgb(10, 10, 255);
+        .fixed-top {
+			position: fixed;
+            width: 100%;
+            background-color: #aaf;
+            text-align: center;
+			z-index: 999;
+        }
+
+  		.column1 {
+			background-color: rgb(25, 25, 25);
 		}
 
 		.column2 {
-			background-color: rgb(100, 10, 255);
-			background-color: rgb(10, 10, 255);
-			height: auto;
+			background-color: rgb(10, 100, 25);
+		}
+
+		.column_seperator {
+			background-color: rgb(10, 200, 25);
 		}
 
 		a {
@@ -66,50 +67,47 @@
     </style>
 </head>
 <body>
-	<div class="left">
-	<h1 style="font-size: 24px; text-align: center; overflow: hidden;">
-		<b> SimplePCs </b>
-	</h1>
-	<h2 style="font-size: 20px; text-decoration: underline;">
-	<br />
-	<br />
-	<br />
-	<ul>
-		<li><a href="#head">Home</a></li>
+	<div class="container_rows" style="width: 100%;">
+		<div class="fixed-top">
+		<h1 style="font-size: 24px; text-align: center; overflow: hidden;">
+			<b> SimplePCs </b>
+		</h1>
 		<br />
-		<br />
-		<br />
-		<br />
-		<li><a href="#initial_text">Pricing</a></li>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<li><a href="#initial_text">About</a></li>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<li><a href="mailto:help@simplepcs.tech">Email</a></li>
-	</ul>
-	</h2>
+		<h2 style="font-size: 20px; text-align: center;">
+		<a href="#head" style="text-decoration: underline;" >Home</a>
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		<a href="#initial_text" style="text-decoration: underline;">Pricing</a>
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		<a href="#initial_text" style="text-decoration: underline;">About</a>
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		<a href="mailto:help@simplepcs.tech" style="text-decoration: underline;">Email</a>
+		</h2>
 	</div>
-	<div class="container" style="z-index: 4; position: relative;" id="initial_text">
-		<div class="column1" style='padding-right: 70px;'>
-			<h1>
-				Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
-			</h1>
-			<p style="font-size: 30px;">
-				Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
-			</p>
-			<br />
-			<p class="font-sans-serif" style="font-size: 30px;">
-				Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
-			</p>
+		<div class="container_columns" style="padding-top: 200px; width: 100%;">
+			<div class="column1" style="width: 40%;" id="initial_text">
+				<h1>
+					Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
+				</h1>
+				<p style="font-size: 30px;">
+					Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
+				</p>
+				<br />
+				<p class="font-sans-serif" style="font-size: 30px;">
+					Coming soon... all of this text is in one font 1 2 3 4 5 6 7 8 9 0 a b c d e f g h i Z A B C 
+				</p>
+			</div>
+			<div class="column_seperator" style="width: 20%;"></div>
+			<div class="column2" id="dynamic_content0" style='width: 40%; background-color: rgb(200, 100, 100);'></div>
 		</div>
-		<div class="column2" id="dynamic_content0" style='padding-right: 70px; padding-left: 50px; padding-top: 100px; background-color: rgb(200, 100, 100);'></div>
 	</div>
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
@@ -118,20 +116,26 @@
 // screen_ratio is how wide the image should be on a 1920 screen
 var g_image_names = [
 	{
+		//id: "torch1.jpg",
+		//id: "veeton_ru_333.jpg",
 		id: "laptop_picture_wp.jpg",
 		alt: "older person using a laptop computer",
+		width: 867,
+		height: 1300,
 		screen_ratio: 380/1920
 	},
 	{
 		id: "2laptop_picture_wp.jpg",
 		alt: "2older person using a laptop computer",
+		width: 867,
+		height: 1300,
 		screen_ratio: 350/1920
 	}
 ];
 
 class image_info {
 	constructor() {
-		this.width = 100;
+		this.width = 0;
 		this.height = 0;
 		this.size_ratio = 0;
 		this.id = "";
@@ -179,22 +183,23 @@ function render_rect_image(image, layout) {
 	}
 
 	console.log("test json: "+g_image_names[0].id);
-	ret += "<img id='"+image.id+"' src='"+image.id+"' alt='"+image.alt+"'; style='position: relative; margin-left: 0; z-index: 9; width: "+width+"px; height: "+height+"px;'>\n";
+	ret = "<br /><br /><br /><br />"
+	ret += "<img id='"+image.id+"' src='"+image.id+"' alt='"+image.alt+"'; style='position: relative; z-index: 9; width: "+width+"px; height: "+height+"px;'>\n";
 
 	// Black outline
-	ret += "<div style='position: relative; margin-left: 0px; z-index: 4; width: "+
+	ret += "<div style='position: relative; z-index: 4; width: "+
 			(width+4)+"px; height: "+(height+4)+"px; background-color: rgba(0, 0, 0, 1.0); top: "+
 			(-(height+6))+"px; left: "+(-2)+"px;'></div>\n";
 	// Rect1
-	ret += "<div style='position: relative; margin-left: 0px; z-index: 3; width: "+
+	ret += "<div style='position: relative; z-index: 3; width: "+
 			width+"px; height: "+height+"px; background-color: rgba(255, 0, 0, 0.7); top: "+
 			(-((height*2)+(24*hmult)))+"px; left: "+(24*wmult)+"px;'></div>\n";
 	// Rect2
-	ret += "<div style='position: relative; margin-left: 0px; z-index: 2; width: "+
+	ret += "<div style='position: relative; z-index: 2; width: "+
 			width+"px; height: "+height+"px; background-color: rgba(0, 255, 0, 0.6); top: "+
 			(-((height*3)+(44*hmult)))+"px; left: "+(44*wmult)+"px;'></div>\n";
 	// Rect3
-	ret += "<div style='position: relative; margin-left: 0px; z-index: 1; width: "+
+	ret += "<div style='position: relative; z-index: 1; width: "+
 			width+"px; height: "+height+"px; background-color: rgba(90, 90, 55, 0.5); top: "+
 			(-((height*4)+(64*hmult)))+"px; left: "+(64*wmult)+"px;'></div>\n";
 
@@ -210,13 +215,11 @@ function render_all_images() {
 
 	for (let i = 0; i < g_images.length; i++) {
 		page_elem = document.getElementById("dynamic_content"+i);
-		if (!page_elem) {
-			console.log("Error: dynamic_content"+i+" could not be found");
+		if (!page_elem)
 			return 0;
-		}
 		image = g_images[i];
 		if (!image) {
-			console.log("Error: image: "+g_images[i].id+" could not be found");
+			console.log("Error: image: "+g_images[i].id+" could not be found, yet dynamic_conent"+i+" exists");
 			return 0;
 		}
 		page_elem.innerHTML = render_rect_image(image, 0);
@@ -241,18 +244,21 @@ function init() {
 		g_images[i].id = g_image_names[i].id;
 		g_images[i].screen_ratio = g_image_names[i].screen_ratio;
 		g_images[i].alt = g_image_names[i].alt;
-		ld = "<img id='"+g_image_names[i].id+"' src='"+g_image_names[i].id+"' style='width: 100px; height: auto; display: none;'>";
+
+		g_images[i].set_dimensions(g_image_names[i].width, g_image_names[i].height);
+
+/*		ld = "<img id='"+g_image_names[i].id+"' src='"+g_image_names[i].id+"' style='width: 400%; height: auto;'>";// display: none;'>";
 		page_elem = document.getElementById("dynamic_content"+i);
 		if (!page_elem) {
 			console.log("dynamic_content"+i+" could not be found at init");
 			break;
 		}
 		page_elem.innerHTML = ld;
-		console.log("displayed image with: "+ld);
+		console.log("displayed image with: "+ld);*/
 	}
 
 	// Grab image details
-	for (i = 0; i < g_images.length; i++) {
+	/*for (i = 0; i < g_images.length; i++) {
 		image = document.getElementById(g_images[i].id);
 		if (image) {
 			g_images[i].set_dimensions(image.width, image.height);
@@ -261,7 +267,7 @@ function init() {
 		} else {
 			console.log("could not find image with id: "+g_images[i].id);
 		}
-	}
+	}*/
 	console.log("init successful");
 	return 1;
 }
