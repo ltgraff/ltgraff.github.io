@@ -115,19 +115,16 @@
 		<a href="mailto:help@simplepcs.tech" style="text-decoration: underline;">Email</a>
 		</h2>
 	</div>
-		<div class="container_columns" style="padding-top: 200px; width: 100%; height: auto;">
-			<div class="column1" style="width: 45%;" id="initial_text">
-				<p style="font-size: 30px;">
-				<h1>Get things to just work!</h1>
+		<div class="column2" id="dynamic_content0" style='padding-top: 200px; width: 100%;'></div>
+			<p style="text-align: center; font-size: 30px;">
+				<h1 style="text-align: center;">Have things just work!</h1>
+				<br />
 				For over 20 years, we have been fixing computers, troubleshooting network problems, configuring
 				settings, and installing/removing parts. 
 				Let us simplify your PC problems!
-				</p>
-			</div>
-			<div class="column_seperator" style="width: 10%;"></div>
-			<div class="column2" id="dynamic_content0" style='width: 40%;'></div>
+			</p>
 		</div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
+		<div class="section_seperator" id="section_seperator0" style="width: 100%;"></div>
 		<h1>Services</h1>
 		<div class="container_columns" style="width: 100%;">
 			<div class="column1" style="width: 50%;" id="text_2">
@@ -139,19 +136,12 @@
 					<li>Backing up of important data to a CD, DVD, or Thumb drive</li>
 					<li>Future solutions, such as a backup hard drive</li>
 				</ul>
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
 				</p>
 			</div>
 			<div class="column_seperator" style="width: 10%;"></div>
 			<div class="column2" id="dynamic_content1" style='width: 40%;'></div>
 		</div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
+		<div class="section_seperator" id="section_seperator1" style="width: 100%;"></div>
 		<div class="container_columns" style="width: 100%;">
 			<div class="column1" style="width: 50%;" id="text_2">
 				<p style="font-size: 30px;">
@@ -171,9 +161,7 @@
 			<div class="column_seperator" style="width: 10%;"></div>
 			<div class="column2" id="dynamic_content2" style='width: 40%;'></div>
 		</div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
+		<div class="section_seperator" id="section_seperator2" style="width: 100%;"></div>
 		<div class="container_columns" style="width: 100%;">
 			<div class="column1" style="width: 50%;" id="text_2">
 				<p style="font-size: 30px;">
@@ -193,9 +181,7 @@
 			<div class="column_seperator" style="width: 10%;"></div>
 			<div class="column2" id="dynamic_content3" style='width: 40%;'></div>
 		</div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
+		<div class="section_seperator" id="section_seperator3" style="width: 100%;"></div>
 		<div class="container_columns" style="width: 100%;">
 			<div class="column1" style="width: 50%;" id="text_2">
 				<p style="font-size: 30px;">
@@ -215,9 +201,7 @@
 			<div class="column_seperator" style="width: 10%;"></div>
 			<div class="column2" id="dynamic_content4" style='width: 40%;'></div>
 		</div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
+		<div class="section_seperator" id="section_seperator4" style="width: 100%;"></div>
 		<div class="container_columns" style="width: 100%;">
 			<div class="column1" style="width: 50%;" id="text_2">
 				<p style="font-size: 30px;">
@@ -237,12 +221,16 @@
 			<div class="column_seperator" style="width: 10%;"></div>
 			<div class="column2" id="dynamic_content5" style='width: 40%;'></div>
 		</div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
-		<div class="column_seperator" style="width: 100%; height: 80px;"></div>
+		<div class="section_seperator" id="section_seperator5" style="width: 100%;"></div>
 	</div>
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
+
+/*
+	Make images centered in area, rather than at the corner
+
+	figure out how much space to add between sections programmatically
+*/
 
 // List of image details
 // screen_ratio is how wide the image should be on a 1920 screen
@@ -335,23 +323,25 @@ function render_rect_image(image, elem_width, elem_height) {
 		left += add_ratio;
 		top -= add_ratio;
 		xoffset = -30;
-		yoffset = (elem_height - height - 4);
+		yoffset = (elem_height - height - 4)/2;
 		break;
 
 		case 1:
 		left += add_ratio;
 		top += add_ratio;
+		yoffset = (elem_height - height - 4)/2;
 		break;
 
 		case 2:
 		left -= add_ratio;
 		top += add_ratio;
-		xoffset = (elem_width - width - 4);
+		xoffset = (elem_width - width - 4)/2;
+		yoffset = (elem_height - height - 4)/2;
 		break;
 
 		default:
-		xoffset = (elem_width - width - 4);
-		yoffset = (elem_height - height - 4);
+		xoffset = (elem_width - width - 4)/2;
+		yoffset = (elem_height - height - 4)/2;
 		left -= add_ratio;
 		top -= add_ratio;
 		break;
@@ -409,6 +399,31 @@ function render_all_images() {
 		}
 		ret += render_rect_image(image, page_elem.offsetWidth, page_elem.offsetHeight);
 		page_elem.innerHTML = ret;
+	}
+	return render_space();
+}
+
+function render_space() {
+	let ret;
+	let fn;
+
+	for (let i = 0; i < g_images.length; i++) {
+		ret = "";
+		fn = "section_seperator"+i;
+		page_elem = document.getElementById(fn);
+		if (!page_elem) {
+			console.log("could not find field");
+			return 0;
+		}
+		ret = "<div class='"+fn+
+			"' id='"+fn+
+			"' style='width: 100%; "+
+			"height: "+((500/1920)*window.innerHeight)+
+			"px;'></div>";
+
+		page_elem.innerHTML = ret;
+		console.log("setting: *"+ret+"*");
+		//page_elem.innerHTML = ret;
 	}
 	return 1;
 }
