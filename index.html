@@ -117,7 +117,7 @@
 	</div>
 		<div class="column2" id="dynamic_content0" style='padding-top: 200px; width: 100%;'></div>
 			<h1 style="text-align: center;">Have things just work!</h1>
-			<p style="text-align: center;">
+			<p>
 				For over 20 years, we have been fixing computers, troubleshooting network problems, configuring
 				settings, and installing/removing parts. 
 				Let us simplify your PC problems!
@@ -281,7 +281,7 @@ function render_rect_image(image, elem_width, elem_height) {
 	let bottom = 0;
 	let xoffset = 0;
 	let yoffset = 0;
-	let add_ratio = (50/1920) * (image.screen_ratio*1920);
+	let add_ratio = (20/1920) * (window.innerWidth);
 	
 	if (width < 2 || height < 2)
 		return ret;
