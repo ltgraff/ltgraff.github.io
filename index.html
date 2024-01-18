@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap">
-	<title>SimplePCs</title>
+	<title>SimplePCs - Data backup and Computer Repair for the Martinsburg West Virginia area</title>
+	<meta name='description' content='SimplePCs focuses on backing up important data like pictures or documents, repairing desktops and laptops, and helping users with computer repair and component replacement'>
     <style>
 		@media only screen and (max-width: 600px) {
 			img {
@@ -17,14 +18,9 @@
 			height: auto;
 		}
 
-		body {
-			font-family: 'montserrat' ,Sans-serif;
-			color: black;
-			font-size: 20px;
-			margin-left: .5em;
-			margin-right: .5em;
-			background-color: rgb(252, 252, 252);
-        }
+		head {
+			margin: 0;
+		}
 
 		.font-sans-serif {
 			font-family: 'Arial', sans-serif;
@@ -34,39 +30,64 @@
 		h1 {
 			font-family: 'Arial', sans-serif;
 			color: black;
-			font-size: 25px;
+			font-size: 2em;
 		}
 
 		h2 {
 			font-family: 'Arial', sans-serif;
 			color: black;
-			font-size: 24px;
+			font-size: 1.1em;
 		}
 
 		h3 {
 			font-family: 'Arial', sans-serif;
 			color: black;
-			font-size: 22px;
+			font-size: 1em;
 			style: bold;
 		}
 
-		.container_rows {
+		.section-seperator {
+		}
+
+		.container-rows {
+			margin-left: .5em;
+			margin-right: .5em; 
+			width: calc(100% - 1em);
 			display: flex;
 			flex-direction: column;
 		}
 
 		.container_columns {
+			margin-left: .5em;
+			margin-right: .5em; 
+			width: calc(100% - 1em);
 			display: flex;
 		}
 
+		body {
+			font-family: 'montserrat' ,Sans-serif;
+			color: black;
+			font-size: 1.4em;
+			margin: 0;
+            background-color: rgb(225, 235, 255);
+        }
+
         .fixed-top {
 			position: fixed;
-            width: calc(100% - 1em);
-            background-color: rgb(180, 180, 255);
-            text-align: center;
+			font-size: .75em;
 			z-index: 999;
-			color: white;
+			background-color: rgb(255, 255, 255);
+			width: 100%;
+			height: 5em;
+			display: flex;
         }
+
+		.top-item {
+			text-align: center;
+			line-height: 4em;
+			width: 50%;
+			overflow: hidden;
+		}
 
   		.column1 {
 		}
@@ -74,7 +95,13 @@
 		.column2 {
 		}
 
-		.column_seperator {
+		.column-seperator {
+		}
+
+		.indent {
+			margin-left: .5em;
+			margin-right: .5em;
+			width: calc(100% - 1em);
 		}
 
 		a {
@@ -85,64 +112,65 @@
 		a:hover {
 			color: cyan;
 		}
+
     </style>
 </head>
 <body>
-	<div class="container_rows" style="width: calc(100% - 1em);">
-		<div class="fixed-top">
-		<h1 style="text-align: center; overflow: hidden;">
+	<div id='head'></div>
+	<div class='fixed-top' style='margin: 0; margin-left: 0; margin-right: 0;'>
+		<div class='top-item' style='font-size: 1em;'>
 			<b> SimplePCs </b>
-		</h1>
-		<br />
-		<h2 style="font-size: 20px; text-align: center;">
-		<a href="#head" style="text-decoration: underline;" >Home</a>
-		&nbsp;
-		&nbsp;
-		&nbsp;
-		&nbsp;
-		<a href="#initial_text" style="text-decoration: underline;">Pricing</a>
-		&nbsp;
-		&nbsp;
-		&nbsp;
-		&nbsp;
-		<a href="#initial_text" style="text-decoration: underline;">About</a>
-		&nbsp;
-		&nbsp;
-		&nbsp;
-		&nbsp;
-		<a href="mailto:help@simplepcs.tech" style="text-decoration: underline;">Email</a>
-		</h2>
+		</div>
+		<div class='top-item'>
+			<a href='#head' style='text-decoration: underline;'>Home</a>
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			<a href='#initial_text' style='text-decoration: underline;'>Pricing</a>
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			<a href='#initial_text' style='text-decoration: underline;'>About</a>
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			<a href='mailto:bens_fulcrum@yahoo.com' style='text-decoration: underline;'>Email</a>
+		</div>
 	</div>
-		<div class="column2" id="dynamic_content0" style='padding-top: 200px; width: calc(100% - 1em);'></div>
-			<h1 style="text-align: center;">Have things just work!</h1>
+	<div class='indent'>
+		<div class='column2' id='dynamic_content0' style='padding-top: 4em;'></div>
+			<h1 style='text-align: center;'>Have things just work!</h1>
 			<p>
 				For over 20 years, we have been fixing computers, troubleshooting network problems, configuring
 				settings, and installing/removing parts. 
 				Let us simplify your PC problems!
 			</p>
-		</div>
-		<br />
-		<div class="section_seperator" id="section_seperator999" style="width: calc(100% - 1em); height: 100px;"></div>
-		<h1>Services</h1>
-		<br />
-		<br />
+		<div class='section-seperator' id='section-seperator999' style='height: 100px;'></div>
 		<h2>Data Backup</h2>
-		<div class="container_columns" style="width: calc(100% - 1em);">
-			<div class="column1" style="width: 50%;" id="text_2">
-				Backup data from hard drives, phones, emails, old laptops
+		Data backup is crucial for preserving digital information in the event of hardware failures, accidental deletions, or other unforeseen issues. It acts as a safety net, preventing permanent loss of valuable files and ensuring quick recovery from disruptions. By regularly backing up data, individuals and businesses can confidently navigate potential setbacks, guaranteeing the preservation of essential information and uninterrupted operations. In essence, data backup serves as a reliable insurance policy for the continued integrity and accessibility of digital assets.
+		<br />
+		<div class='container_columns'>
+			<div class='column1' style='width: 50%;' id='text_2'>
+				<br />
+				<br />
+				Backup data from hard drives, phones, emails, old laptops:
 				<ul>
 					<li>Data recovery from inoperable laptop or desktop</li>
 					<li>Backing up of important data to a CD, DVD, or Thumb drive</li>
 					<li>Future solutions, such as a backup hard drive</li>
 				</ul>
 			</div>
-			<div class="column_seperator" style="width: 10%;"></div>
-			<div class="column2" id="dynamic_content1" style='width: 40%;'></div>
+			<div class='column-seperator' style='width: 10%;'></div>
+			<div class='column2' id='dynamic_content1' style='width: 40%;'></div>
 		</div>
-		<div class="section_seperator" id="section_seperator0" style="width: calc(100% - 1em);"></div>
+		<div class='section-seperator' id='section-seperator0'></div>
 		<h2>Hardware</h2>
-		<div class="container_columns" style="width: calc(100% - 1em);">
-			<div class="column1" style="width: 50%;" id="text_2">
+		Address the challenges of aging, sluggish, or malfunctioning computers is at the core of our mission. We offer a comprehensive solution that goes beyond mere repairs – our service aims to breathe new life into outdated systems, enhance performance, and rectify any issues hindering optimal functionality. Whether it's upgrading hardware components, optimizing software configurations, or troubleshooting and fixing persistent problems, our commitment is to provide a tailored approach that revitalizes computers, enabling users to experience improved speed, efficiency, and reliability. Embracing cutting-edge techniques and a customer-centric philosophy, we take pride in transforming obsolete technology into smoothly running, efficient assets, ensuring our clients can maximize the lifespan and usability of their devices.
+		<br />
+		<div class='container_columns'>
+			<div class='column1' style='width: 50%;' id='text_2'>
+				<br />
+				<br />
 				Allow us to fix old, slow, or broken computers
 				<ul>
 					<li>Fix broken laptops or desktops</li>
@@ -150,14 +178,18 @@
 					<li>Printer or accessory installation and configuration</li>
 				</ul>
 			</div>
-			<div class="column_seperator" style="width: 10%;"></div>
-			<div class="column2" id="dynamic_content2" style='width: 40%;'></div>
+			<div class='column-seperator' style='width: 10%;'></div>
+			<div class='column2' id='dynamic_content2' style='width: 40%;'></div>
 		</div>
-		<div class="section_seperator" id="section_seperator1" style="width: calc(100% - 1em);"></div>
+		<div class='section-seperator' id='section-seperator1'></div>
 		<h2>Networking</h2>
-		<div class="container_columns" style="width: calc(100% - 1em);">
-			<div class="column1" style="width: 50%;" id="text_2">
+		Streamlining the configuration of all your home or office devices is an essential step towards seamless integration and optimal performance. Our service is designed to take the complexity out of device setup, ensuring that every component, from computers and printers to smart home devices, is meticulously configured for efficiency and compatibility. Our skilled technicians work to customize settings, establish secure network connections, and synchronize devices for a harmonized user experience. Whether it's fine-tuning software preferences, setting up network protocols, or integrating the latest updates, our commitment is to deliver a hassle-free configuration process that maximizes the functionality and interconnectedness of your devices. By entrusting us with the configuration of your technological ecosystem, you can enjoy a well-organized and interconnected environment that enhances productivity and connectivity in your home or office.
+		<br />
+		<div class='container_columns'>
+			<div class='column1' style='width: 50%;' id='text_2'>
 				Configure all of your home or office devices
+				<br />
+				<br />
 				<ul>
 					<li>Install and/or configure home network</li>
 					<li>Troubleshoot connectivity issues</li>
@@ -165,38 +197,47 @@
 				</ul>
 				<br />
 			</div>
-			<div class="column_seperator" style="width: 10%;"></div>
-			<div class="column2" id="dynamic_content3" style='width: 40%;'></div>
+			<div class='column-seperator' style='width: 10%;'></div>
+			<div class='column2' id='dynamic_content3' style='width: 40%;'></div>
 		</div>
-		<div class="section_seperator" id="section_seperator2" style="width: calc(100% - 1em);"></div>
+		<div class='section-seperator' id='section-seperator2'></div>
 		<h2>Webpage and domain hosting</h2>
-		<div class="container_columns" style="width: calc(100% - 1em);">
-			<div class="column1" style="width: 50%;" id="text_2">
+		Entrust the management of your webpage to us, and experience a comprehensive service that goes beyond routine maintenance. Our team is dedicated to ensuring the seamless operation, security, and optimization of your online presence. From regular updates and content management to implementing the latest web technologies, we handle all aspects of maintaining and enhancing your webpage. We prioritize security protocols to safeguard against potential threats, while also focusing on performance optimization for an optimal user experience. Whether it's troubleshooting issues, adding new features, or keeping your content fresh and engaging, our commitment is to provide a hassle-free and effective solution that allows you to focus on your core activities while we take care of the intricacies of your digital space. With our expertise, your webpage will not only be well-maintained but will also evolve in line with the dynamic landscape of the online world.
+		<br />
+		<div class='container_columns'>
+			<div class='column1' style='width: 50%;' id='text_2'>
 				Let us take care of your webpage
+				<br />
+				<br />
 				<ul>
 					<li>Create webpages</li>
 					<li>Configure webpage hosting</li>
 					<li>Configure domain name registration</li>
 				</ul>
 			</div>
-			<div class="column_seperator" style="width: 10%;"></div>
-			<div class="column2" id="dynamic_content4" style='width: 40%;'></div>
+			<div class='column-seperator' style='width: 10%;'></div>
+			<div class='column2' id='dynamic_content4' style='width: 40%;'></div>
 		</div>
-		<div class="section_seperator" id="section_seperator3" style="width: calc(100% - 1em);"></div>
+		<div class='section-seperator' id='section-seperator3'></div>
 		<h2>Tutoring</h2>
-		<div class="container_columns" style="width: calc(100% - 1em);">
-			<div class="column1" style="width: 50%;" id="text_2">
+		Accelerate your learning journey with our tutoring sessions, designed to optimize your educational experience. Our dedicated tutors are committed to tailoring sessions to your unique learning style, helping you grasp concepts more efficiently and overcome challenges. By providing personalized attention, we create an environment conducive to rapid comprehension and skill development. Our tutoring approach combines expertise with flexibility, allowing you to focus on specific subjects or topics that require attention. Whether you're preparing for exams, seeking clarification on difficult subjects, or aiming for advanced understanding, our tutoring sessions are geared towards enhancing your academic performance. Embrace a faster and more effective learning process as we guide you through the intricacies of your studies, ensuring a comprehensive and empowering educational experience.
+		<br />
+		<div class='container_columns'>
+			<div class='column1' style='width: 50%;' id='text_2'>
 				Speed up your learning with a tutoring session
+				<br />
+				<br />
 				<ul>
 					<li>Rates per session or hourly</li>
 					<li>Programming languages, like C, Java, Python, and Javascript</li>
 					<li>Assistance with classes and lessons</li>
 				</ul>
 			</div>
-			<div class="column_seperator" style="width: 10%;"></div>
-			<div class="column2" id="dynamic_content5" style='width: 40%;'></div>
+			<div class='column-seperator' style='width: 10%;'></div>
+			<div class='column2' id='dynamic_content5' style='width: 40%;'></div>
 		</div>
-		<div class="section_seperator" id="section_seperator4" style="width: calc(100% - 1em);"></div>
+		<div class='section-seperator' id='section-seperator4'></div>
+	</div>
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -283,7 +324,7 @@ function render_rect_image(image, elem_width, elem_height) {
 	let xoffset = 0;
 	let yoffset = 0;
 	let add_ratio = (35/1920) * (window.innerWidth);
-	
+
 	if (width < 2 || height < 2)
 		return ret;
 	switch (image.layout) {
@@ -372,24 +413,23 @@ function render_all_images() {
 function render_space() {
 	let ret;
 	let fn;
+	// Size on a 1920 display
+	let width = (450/1920)*window.innerWidth;
+	// Height/Width ratio
+	let height = (450/450)*width;
 
 	for (let i = 0; i < g_images.length; i++) {
 		ret = "";
-		fn = "section_seperator"+i;
+		fn = "section-seperator"+i;
 		page_elem = document.getElementById(fn);
-		if (!page_elem) {
-			console.log("could not find field");
+		if (!page_elem)
 			return 0;
-		}
 		ret = "<div class='"+fn+
 			"' id='"+fn+
 			"' style='width: calc(100% - 1em); "+
-			"height: "+((500/1920)*window.innerWidth)+
+			"height: "+height+
 			"px;'></div>";
-
 		page_elem.innerHTML = ret;
-		console.log("setting: *"+ret+"*");
-		//page_elem.innerHTML = ret;
 	}
 	return 1;
 }
