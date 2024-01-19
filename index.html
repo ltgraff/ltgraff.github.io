@@ -74,19 +74,20 @@
 
         .fixed-top {
 			position: fixed;
-			font-size: .75em;
 			z-index: 999;
 			background-color: rgb(255, 255, 255);
 			width: 100%;
 			height: 5em;
 			display: flex;
+			margin: 0;
+			margin-left: 0;
+			margin-right: 0;
         }
 
 		.top-item {
-			text-align: center;
-			line-height: 4em;
-			width: 50%;
 			overflow: hidden;
+			font-size: .75em;
+			padding-top: 3em;
 		}
 
   		.column1 {
@@ -117,11 +118,11 @@
 </head>
 <body>
 	<div id='head'></div>
-	<div class='fixed-top' style='margin: 0; margin-left: 0; margin-right: 0;'>
-		<div class='top-item' style='font-size: 1em;'>
-			<b> SimplePCs </b>
+	<div class='fixed-top'>
+		<div class='top-item' style='text-align: center; width: 40%;'>
+			<b>SimplePCs</b>
 		</div>
-		<div class='top-item' style='display: flex; justify-content: space-between; padding-right: 2em;'>
+		<div class='top-item' style='display: flex; justify-content: space-between; padding-right: 2em; width: 60%;'>
 			<a href='#head' style='text-decoration: underline;'>Home</a>
 			<a href='#initial_text' style='text-decoration: underline;'>Pricing</a>
 			<a href='#initial_text' style='text-decoration: underline;'>About</a>
