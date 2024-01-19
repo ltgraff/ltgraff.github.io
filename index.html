@@ -24,24 +24,20 @@
 
 		.font-sans-serif {
 			font-family: 'Arial', sans-serif;
-			color: black;
 		}
 
 		h1 {
 			font-family: 'Arial', sans-serif;
-			color: black;
 			font-size: 2em;
 		}
 
 		h2 {
 			font-family: 'Arial', sans-serif;
-			color: black;
 			font-size: 1.1em;
 		}
 
 		h3 {
 			font-family: 'Arial', sans-serif;
-			color: black;
 			font-size: 1em;
 			style: bold;
 		}
@@ -50,44 +46,42 @@
 		}
 
 		.container-rows {
-			margin-left: .5em;
-			margin-right: .5em; 
-			width: calc(100% - 1em);
+			margin-left: 1.5em;
+			margin-right: 1.5em; 
+			width: calc(100% - 3em);
 			display: flex;
 			flex-direction: column;
 		}
 
 		.container_columns {
-			margin-left: .5em;
-			margin-right: .5em; 
-			width: calc(100% - 1em);
+			margin-left: 1.5em;
+			margin-right: 1.5em; 
+			width: calc(100% - 3em);
 			display: flex;
 		}
 
 		body {
 			font-family: 'montserrat' ,Sans-serif;
-			color: black;
 			font-size: 1.4em;
 			margin: 0;
-            background-color: rgb(225, 235, 255);
         }
 
         .fixed-top {
 			position: fixed;
 			z-index: 999;
-			background-color: rgb(255, 255, 255);
 			width: 100%;
 			height: 5em;
 			display: flex;
 			margin: 0;
-			margin-left: 0;
-			margin-right: 0;
-        }
+	     }
 
 		.top-item {
 			overflow: hidden;
+			display: flex;
 			font-size: .75em;
-			padding-top: 3em;
+			align-items: center;
+			justify-content: center;
+			padding-right: 2em;
 		}
 
   		.column1 {
@@ -100,9 +94,9 @@
 		}
 
 		.indent {
-			margin-left: .5em;
-			margin-right: .5em;
-			width: calc(100% - 1em);
+			margin-left: 1.5em;
+			margin-right: 1.5em;
+			width: calc(100% - 3em);
 		}
 
 		a {
@@ -111,32 +105,34 @@
 		}
 
 		a:hover {
-			color: cyan;
+			color: white;
+			background-color: black;
 		}
 
     </style>
 </head>
-<body>
+<body id='body'>
 	<div id='head'></div>
-	<div class='fixed-top'>
-		<div class='top-item' style='text-align: center; width: 40%;'>
+	<div class='fixed-top' id='fixed-top'>
+		<div class='top-item' style='width: 40%;'>
 			<b>SimplePCs</b>
 		</div>
 		<div class='top-item' style='display: flex; justify-content: space-between; padding-right: 2em; width: 60%;'>
-			<a href='#head' style='text-decoration: underline;'>Home</a>
-			<a href='#initial_text' style='text-decoration: underline;'>Pricing</a>
-			<a href='#initial_text' style='text-decoration: underline;'>About</a>
-			<a href='mailto:bens_fulcrum@yahoo.com' style='text-decoration: underline;'>Email</a>
+			<a href='#head'>Home</a>
+			<a href='#initial_text'>Pricing</a>
+			<a href='#initial_text'>About</a>
+			<a href='mailto:bens_fulcrum@yahoo.com'>Email</a>
 		</div>
 	</div>
 	<div class='indent'>
-		<div class='column2' id='dynamic_content0' style='padding-top: 4em;'></div>
-			<h1 style='text-align: center;'>Have things just work!</h1>
+		<div class='column2' id='dynamic_content0' style='padding-top: 5em;'></div>
+			<h1 style='text-align: center;'>Have computers just work!</h1>
 			<p>
 				For over 20 years, we have been fixing computers, troubleshooting network problems, configuring
 				settings, and installing/removing parts. 
 				Let us simplify your PC problems!
 			</p>
+			<button type="button" id='button1' style='font-size: 1em; border-radius: 6px; border: 2px solid;' onclick="window.location.href='mailto: bens_fulcrum@yahoo.com'">Contact Us Today!</button>
 		<div class='section-seperator' id='section-seperator999' style='height: 100px;'></div>
 		<h2>Data Backup</h2>
 		Data backup is crucial for preserving digital information in the event of hardware failures, accidental deletions, or other unforeseen issues. It acts as a safety net, preventing permanent loss of valuable files and ensuring quick recovery from disruptions. By regularly backing up data, individuals and businesses can confidently navigate potential setbacks, guaranteeing the preservation of essential information and uninterrupted operations. In essence, data backup serves as a reliable insurance policy for the continued integrity and accessibility of digital assets.
@@ -233,6 +229,13 @@
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
 
+// Set global color palette
+var top_bg_color = "#ecc260";
+var top_fg_color = "#181909";
+
+var bg_color = "#e4e0dd";
+var fg_color = "#181909";
+
 // List of image details
 // screen_ratio is how wide the image should be on a 1920 screen
 var g_image_names = [
@@ -245,16 +248,16 @@ var g_image_names = [
 		layout: 1
 	},
 	{
-		id: "pexels-marcus-aurelius-6787953.jpg",
-		alt: "older couple using a touchpad to look at family data",
+		id: "pexels-azamat-esenaliev-117729.jpg",
+		alt: "Hard drive and desktop troubleshooting and repair",
 		width: 1000,
 		height: 667,
 		screen_ratio: 680/1920,
 		layout: 1
 	},
 	{
-		id: "pexels-azamat-esenaliev-117729.jpg",
-		alt: "Hard drive and desktop troubleshooting and repair",
+		id: "pexels-marcus-aurelius-6787953.jpg",
+		alt: "older couple using a touchpad to look at family data",
 		width: 1000,
 		height: 667,
 		screen_ratio: 680/1920,
@@ -352,7 +355,8 @@ function render_rect_image(image, elem_width, elem_height) {
 			"px; margin-right:"+ (xoffset+right*3) +
 			"px; margin-top: "+ (yoffset+top*3) +
 			"px; margin-bottom: "+ (yoffset+bottom*3) +
-			"px; background-color: rgba(70, 200, 200, 0.3);'></div>\n";
+			"px; background-color: rgba(117, 69, 0, 0.3);'></div>\n";
+			//"px; background-color: rgba(70, 200, 200, 0.3);'></div>\n";
 	// Rect2
 	ret += "<div style='position: absolute; width: "+
 			width+"px; height: "+height+
@@ -360,7 +364,8 @@ function render_rect_image(image, elem_width, elem_height) {
 			"px; margin-right:"+ (xoffset+right*2) +
 			"px; margin-top: "+ (yoffset+top*2) +
 			"px; margin-bottom: "+ (yoffset+2+bottom*2) +
-			"px; background-color: rgba(0, 250, 0, 0.4);'></div>\n";
+			"px; background-color: rgba(142, 90, 6, 0.4);'></div>\n";
+			//"px; background-color: rgba(0, 250, 0, 0.4);'></div>\n";
 	// Rect1
 	ret += "<div style='position: absolute; width: "+
 			width+"px; height: "+height+
@@ -368,7 +373,8 @@ function render_rect_image(image, elem_width, elem_height) {
 			"px; margin-right:"+ (xoffset+right*1) +
 			"px; margin-top: "+ (yoffset+top*1) +
 			"px; margin-bottom: "+ (yoffset+bottom*1) +
-			"px; background-color: rgba(255, 0, 0, 0.7);'></div>\n";
+			"px; background-color: rgba(243, 208, 116, 0.7);'></div>\n";
+			//"px; background-color: rgba(255, 0, 0, 0.7);'></div>\n";
 	// Image
 	ret += "<img id='"+image.id+"' src='"+image.id+
 		"' alt='"+image.alt+"' style='position: absolute; width: "+width+
@@ -428,6 +434,33 @@ function render_space() {
 
 window.onresize = () => render_all_images();
 
+function set_colors() {
+	const fixed_top = document.getElementById('fixed-top');
+	if (!fixed_top) {
+		console.log("Could not find fixed-top");
+		return 0;
+	}
+	fixed_top.style.backgroundColor = top_bg_color;
+	fixed_top.style.color = top_fg_color;
+
+	const body = document.getElementById('body');
+	if (!body) {
+		console.log("Could not find fixed-top");
+		return 0;
+	}
+	body.style.backgroundColor = bg_color;
+	body.style.color = fg_color;
+
+	const button1 = document.getElementById('button1');
+	if (!button1) {
+		console.log("Could not find fixed-top");
+		return 0;
+	}
+	button1.style.backgroundColor = top_bg_color;
+	button1.style.color = top_fg_color;
+	return 1;
+}
+
 /*
 * Load all images (and do not display them) with a width of 100, then determine the ratio based on height
 */
@@ -445,7 +478,7 @@ function init() {
 		g_images[i].layout = g_image_names[i].layout;
 		g_images[i].set_dimensions(g_image_names[i].width, g_image_names[i].height);
 	}
-	return 1;
+	return set_colors();
 }
 
 init();
