@@ -9,14 +9,14 @@
 	<meta name='description' content='SimplePCs focuses on backing up important data like pictures or documents, repairing desktops and laptops, and helping users with computer repair and component replacement'>
     <style>
 		@media only screen and (max-width: 600px) {
-			img {
+			/*img {
 				width: calc(100% - 1em);
-			}
+			}*/
 		}
 
 		img {
-			max-width: calc(100% - 1em);
-			height: auto;
+			width: 100%;
+			height: 100%;
 		}
 
 		head {
@@ -62,7 +62,7 @@
 		}
 
 		body {
-			font-family: 'montserrat' ,Sans-serif;
+			font-family: 'montserrat', Sans-serif;
 			font-size: 1.4em;
 			margin: 0;
         }
@@ -86,9 +86,11 @@
 		}
 
 		.indent {
-			margin-left: 1.5em;
+			margin: 0;
+			width: 100%;
+		/*	margin-left: 1.5em;
 			margin-right: 1.5em;
-			width: calc(100% - 3em);
+			width: calc(100% - 3em);*/
 		}
 
 		a {
@@ -115,9 +117,9 @@
 
 		.hamburger {
 			position: fixed;
+			top: 2.5em;
+			right: 8em;
 			z-index: 9999;
-			top: 4em;
-			right: 6em;
 			padding: .75em;
 			cursor: pointer;
 		}
@@ -151,12 +153,22 @@
 			transform: translateY(0);
 		}
 
+		.background-image {
+			width: 100%;
+			height: 40em;
+			background-image: url('pexels-azamat-esenaliev-117729.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			color: white;
+		}
+
     </style>
 </head>
 <body id='body'>
 	<div id='head'></div>
 	<div class='fixed-top' id='fixed-top'>
-			<div style='display: flex; align-items: center; padding-top: .5em; padding-left: 5em; font-size: 1em;'>
+			<div style='display: flex; align-items: center; top: 4em; padding-left: 5em; font-size: 1em;'>
 				<b>SimplePCs</b>
 			</div>
 		<ul class='menu' id='menu'>
@@ -171,110 +183,79 @@
 			<i class="closeIcon material-icons">close</i>
 		</button>
 	</div>
-	<div class='indent'>
-		<div class='column2' id='dynamic_content0' style='padding-top: 5em;'></div>
+	<div class='background-image'>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
 			<h1 style='text-align: center;'>Have computers just work!</h1>
+			<br />
 			<p>
 				For over 20 years, we have been fixing computers, troubleshooting network problems, configuring
 				settings, and installing/removing parts. 
 				Let us simplify your PC problems!
 			</p>
+			<br />
+			<br />
 			<div style='display: flex; justify-content: center;'>
 				<button type='button' class='button1' id='button1' onclick="window.location.href='mailto: bens_fulcrum@yahoo.com'">Contact Us Today!</button>
 			</div>
+		</div>
+
 		<div class='section-seperator' id='section-seperator999' style='height: 100px;'></div>
-		<h2>Data Backup</h2>
-		Data backup is crucial for preserving digital information in the event of hardware failures, accidental deletions, or other unforeseen issues. It acts as a safety net, preventing permanent loss of valuable files and ensuring quick recovery from disruptions. By regularly backing up data, individuals and businesses can confidently navigate potential setbacks, guaranteeing the preservation of essential information and uninterrupted operations. In essence, data backup serves as a reliable insurance policy for the continued integrity and accessibility of digital assets.
-		<br />
-		<div class='container_columns'>
-			<div class='column1' style='width: 50%;' id='text_2'>
+
+		<div class='container_columns' style='height: 10em;'>
+		<img id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt='' style='margin-left: auto; margin-right: auto; width: auto; height: auto; display: block;'></img>
+		<div class='column2' style='width: 25%; padding-left: 2em; padding-right: 2em;'>
+				Backup all of your important data to a DVD or thumb drive.
 				<br />
-				<br />
-				Backup data from hard drives, phones, emails, old laptops:
 				<ul>
-					<li>Data recovery from inoperable laptop or desktop</li>
-					<li>Backing up of important data to a CD, DVD, or Thumb drive</li>
-					<li>Future solutions, such as a backup hard drive</li>
+					<li>Pictures</li>
+					<li>Documents</li>
+					<li>Email</li>
 				</ul>
 			</div>
-			<div class='column-seperator' style='width: 10%;'></div>
-			<div class='column2' id='dynamic_content1' style='width: 40%;'></div>
-		</div>
-		<div class='section-seperator' id='section-seperator0'></div>
-		<h2>Hardware</h2>
-		Address the challenges of aging, sluggish, or malfunctioning computers is at the core of our mission. We offer a comprehensive solution that goes beyond mere repairs – our service aims to breathe new life into outdated systems, enhance performance, and rectify any issues hindering optimal functionality. Whether it's upgrading hardware components, optimizing software configurations, or troubleshooting and fixing persistent problems, our commitment is to provide a tailored approach that revitalizes computers, enabling users to experience improved speed, efficiency, and reliability. Embracing cutting-edge techniques and a customer-centric philosophy, we take pride in transforming obsolete technology into smoothly running, efficient assets, ensuring our clients can maximize the lifespan and usability of their devices.
-		<br />
-		<div class='container_columns'>
-			<div class='column1' style='width: 50%;' id='text_2'>
-				<br />
-				<br />
+		<img id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt='' style='margin-left: auto; margin-right: auto; width: auto; height: auto; display: block;'></img>
+		<div class='column2' style='width: 25%; padding-left: 2em;'>
 				Return your old desktop or laptop back to life
 				<ul>
 					<li>Fix broken laptops or desktops</li>
 					<li>Installation of new hardware</li>
 					<li>Printer or accessory installation and configuration</li>
 				</ul>
-			</div>
-			<div class='column-seperator' style='width: 10%;'></div>
-			<div class='column2' id='dynamic_content2' style='width: 40%;'></div>
 		</div>
-		<div class='section-seperator' id='section-seperator1'></div>
-		<h2>Networking</h2>
-		Streamlining the configuration of all your home or office devices is an essential step towards seamless integration and optimal performance. Our service is designed to take the complexity out of device setup, ensuring that every component, from computers and printers to smart home devices, is meticulously configured for efficiency and compatibility. Our skilled technicians work to customize settings, establish secure network connections, and synchronize devices for a harmonized user experience. Whether it's fine-tuning software preferences, setting up network protocols, or integrating the latest updates, our commitment is to deliver a hassle-free configuration process that maximizes the functionality and interconnectedness of your devices. By entrusting us with the configuration of your technological ecosystem, you can enjoy a well-organized and interconnected environment that enhances productivity and connectivity in your home or office.
-		<br />
-		<div class='container_columns'>
-			<div class='column1' style='width: 50%;' id='text_2'>
-				Configure all of your home or office devices
-				<br />
+		</div>
+
+		<div class='section-seperator' id='section-seperator999' style='height: 100px;'></div>
+
+		<div class='container_columns' style='height: 10em;'>
+		<img id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt='' style='margin-left: auto; margin-right: auto; width: auto; height: auto; display: block;'></img>
+		<div class='column2' style='width: 25%; padding-left: 2em; padding-right: 2em;'>
+				Networking
 				<br />
 				<ul>
-					<li>Install and/or configure home network</li>
-					<li>Troubleshoot connectivity issues</li>
-					<li>Fix slow loading times</li>
+					<li>Pictures</li>
+					<li>Documents</li>
+					<li>Email</li>
 				</ul>
-				<br />
 			</div>
-			<div class='column-seperator' style='width: 10%;'></div>
-			<div class='column2' id='dynamic_content3' style='width: 40%;'></div>
-		</div>
-		<div class='section-seperator' id='section-seperator2'></div>
-		<h2>Webpage and domain hosting</h2>
-		Entrust the management of your webpage to us, and experience a comprehensive service that goes beyond routine maintenance. Our team is dedicated to ensuring the seamless operation, security, and optimization of your online presence. From regular updates and content management to implementing the latest web technologies, we handle all aspects of maintaining and enhancing your webpage. We prioritize security protocols to safeguard against potential threats, while also focusing on performance optimization for an optimal user experience. Whether it's troubleshooting issues, adding new features, or keeping your content fresh and engaging, our commitment is to provide a hassle-free and effective solution that allows you to focus on your core activities while we take care of the intricacies of your digital space. With our expertise, your webpage will not only be well-maintained but will also evolve in line with the dynamic landscape of the online world.
-		<br />
-		<div class='container_columns'>
-			<div class='column1' style='width: 50%;' id='text_2'>
-				Let us take care of your webpage
-				<br />
-				<br />
+		<img id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt='' style='margin-left: auto; margin-right: auto; width: auto; height: auto; display: block;'></img>
+		<div class='column2' style='width: 25%; padding-left: 2em;'>
+				Tutoring
 				<ul>
-					<li>Create webpages</li>
-					<li>Configure webpage hosting</li>
-					<li>Configure domain name registration</li>
+					<li>Fix broken laptops or desktops</li>
+					<li>Installation of new hardware</li>
+					<li>Printer or accessory installation and configuration</li>
 				</ul>
-			</div>
-			<div class='column-seperator' style='width: 10%;'></div>
-			<div class='column2' id='dynamic_content4' style='width: 40%;'></div>
 		</div>
-		<div class='section-seperator' id='section-seperator3'></div>
-		<h2>Tutoring</h2>
-		Accelerate your learning journey with our tutoring sessions, designed to optimize your educational experience. Our dedicated tutors are committed to tailoring sessions to your unique learning style, helping you grasp concepts more efficiently and overcome challenges. By providing personalized attention, we create an environment conducive to rapid comprehension and skill development. Our tutoring approach combines expertise with flexibility, allowing you to focus on specific subjects or topics that require attention. Whether you're preparing for exams, seeking clarification on difficult subjects, or aiming for advanced understanding, our tutoring sessions are geared towards enhancing your academic performance. Embrace a faster and more effective learning process as we guide you through the intricacies of your studies, ensuring a comprehensive and empowering educational experience.
+		</div>
+		<div class='section-seperator' id='section-seperator999' style='height: 100px;'></div>
 		<br />
-		<div class='container_columns'>
-			<div class='column1' style='width: 50%;' id='text_2'>
-				Speed up your learning with a tutoring session
-				<br />
-				<br />
-				<ul>
-					<li>Rates per session or hourly</li>
-					<li>Programming languages, like C, Java, Python, and Javascript</li>
-					<li>Assistance with classes and lessons</li>
-				</ul>
-			</div>
-			<div class='column-seperator' style='width: 10%;'></div>
-			<div class='column2' id='dynamic_content5' style='width: 40%;'></div>
-		</div>
-		<div class='section-seperator' id='section-seperator4'></div>
-	</div>
+		<br />
+		<br />
+		<br />
+		<br />
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -282,7 +263,7 @@
 var top_bg_color = "#ecc260";
 var top_fg_color = "#181909";
 
-var bg_color = "#eeeeee";
+var bg_color = "#ecc260";
 var fg_color = "#181909";
 
 // List of image details
@@ -301,7 +282,7 @@ var g_image_names = [
 		alt: "older couple using a touchpad to look at family data",
 		width: 1000,
 		height: 667,
-		screen_ratio: 680/1920,
+		screen_ratio: 580/1920,
 		layout: 1
 	},
 	{
@@ -309,7 +290,7 @@ var g_image_names = [
 		alt: "Hard drive and desktop troubleshooting and repair",
 		width: 1000,
 		height: 667,
-		screen_ratio: 680/1920,
+		screen_ratio: 580/1920,
 		layout: 1
 	},
 	{
@@ -317,7 +298,7 @@ var g_image_names = [
 		alt: "diverse group of people working on networking and computers",
 		width: 1000,
 		height: 711,
-		screen_ratio: 680/1920,
+		screen_ratio: 580/1920,
 		layout: 1
 	},
 	{
@@ -325,7 +306,7 @@ var g_image_names = [
 		alt: "older gentleman working on webpages and domain hosting",
 		width: 1000,
 		height: 667,
-		screen_ratio: 680/1920,
+		screen_ratio: 580/1920,
 		layout: 1
 	},
 	{
@@ -333,7 +314,7 @@ var g_image_names = [
 		alt: "computer monitor showing python code and learning in a classroom environment",
 		width: 1000,
 		height: 664,
-		screen_ratio: 680/1920,
+		screen_ratio: 580/1920,
 		layout: 1
 	}
 ];
@@ -367,7 +348,7 @@ function render_rect_image(image, elem_width, elem_height) {
 	let bottom = 0;
 	let xoffset = 0;
 	let yoffset = 0;
-	let add_ratio = (35/1920) * (window.innerWidth);
+	let add_ratio = (15/1920) * (window.innerWidth);
 
 	if (width < 2 || height < 2)
 		return ret;
@@ -574,7 +555,7 @@ function toggle_menu() {
 }
 
 init();
-render_all_images();
+//render_all_images();
 
 ////////////////////////////////////////////////////////////////////////////////////
 </script>
