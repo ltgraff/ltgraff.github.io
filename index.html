@@ -109,6 +109,18 @@
 			background-color: black;
 		}
 
+		.button1 {
+			padding: .5em;
+			font-size: .75em; 
+			border-radius: 9px; 
+			border: 2px solid;
+		}
+
+		.button1:hover {
+			color: white;
+			background-color: black;
+		}
+
     </style>
 </head>
 <body id='body'>
@@ -132,7 +144,9 @@
 				settings, and installing/removing parts. 
 				Let us simplify your PC problems!
 			</p>
-			<button type="button" id='button1' style='font-size: 1em; border-radius: 6px; border: 2px solid;' onclick="window.location.href='mailto: bens_fulcrum@yahoo.com'">Contact Us Today!</button>
+			<div style='display: flex; justify-content: center;'>
+				<button type='button' class='button1' id='button1' onclick="window.location.href='mailto: bens_fulcrum@yahoo.com'">Contact Us Today!</button>
+			</div>
 		<div class='section-seperator' id='section-seperator999' style='height: 100px;'></div>
 		<h2>Data Backup</h2>
 		Data backup is crucial for preserving digital information in the event of hardware failures, accidental deletions, or other unforeseen issues. It acts as a safety net, preventing permanent loss of valuable files and ensuring quick recovery from disruptions. By regularly backing up data, individuals and businesses can confidently navigate potential setbacks, guaranteeing the preservation of essential information and uninterrupted operations. In essence, data backup serves as a reliable insurance policy for the continued integrity and accessibility of digital assets.
@@ -159,7 +173,7 @@
 			<div class='column1' style='width: 50%;' id='text_2'>
 				<br />
 				<br />
-				Allow us to fix old, slow, or broken computers
+				Return your old desktop or laptop back to life
 				<ul>
 					<li>Fix broken laptops or desktops</li>
 					<li>Installation of new hardware</li>
@@ -233,7 +247,7 @@
 var top_bg_color = "#ecc260";
 var top_fg_color = "#181909";
 
-var bg_color = "#e4e0dd";
+var bg_color = "#eeeeee";
 var fg_color = "#181909";
 
 // List of image details
@@ -248,16 +262,16 @@ var g_image_names = [
 		layout: 1
 	},
 	{
-		id: "pexels-azamat-esenaliev-117729.jpg",
-		alt: "Hard drive and desktop troubleshooting and repair",
+		id: "pexels-marcus-aurelius-6787953.jpg",
+		alt: "older couple using a touchpad to look at family data",
 		width: 1000,
 		height: 667,
 		screen_ratio: 680/1920,
 		layout: 1
 	},
 	{
-		id: "pexels-marcus-aurelius-6787953.jpg",
-		alt: "older couple using a touchpad to look at family data",
+		id: "pexels-azamat-esenaliev-117729.jpg",
+		alt: "Hard drive and desktop troubleshooting and repair",
 		width: 1000,
 		height: 667,
 		screen_ratio: 680/1920,
@@ -458,6 +472,14 @@ function set_colors() {
 	}
 	button1.style.backgroundColor = top_bg_color;
 	button1.style.color = top_fg_color;
+	button1.addEventListener('mouseenter', () => { 
+		button1.style.backgroundColor = '#000000';
+		button1.style.color = '#FFFFFF';
+	});
+	button1.addEventListener('mouseleave', () => { 
+		button1.style.backgroundColor = top_bg_color;
+		button1.style.color = top_fg_color;
+	});
 	return 1;
 }
 
