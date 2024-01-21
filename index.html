@@ -115,10 +115,10 @@
 
 		.hamburger {
 			position: fixed;
-			z-index: 100;
-			top: 1rem;
-			right: 1rem;
-			padding: 4px;
+			z-index: 9999;
+			top: 4em;
+			right: 6em;
+			padding: .75em;
 			cursor: pointer;
 		}
 
@@ -128,27 +128,26 @@
 
 		.menu {
 			position: fixed;
-			transform: translateY(-100%);
+			transform: translateY(-400%);
 			transition: transform 0.2s;
 			top: 0;
 			left: 0;
 			right: 0;
 			bottom: 0;
+			padding-top: 4em;
 			z-index: 9;
 			list-style: none;
 		}
 
 		.menu-item {
-			overflow: hidden;
 			display: flex;
 			font-size: 2em;
-			margin: 2em 4em;
 			align-items: center;
 			justify-content: center;
 			padding-right: 0em;
 		}
 
-		.show_menu {
+		.show-menu {
 			transform: translateY(0);
 		}
 
@@ -157,10 +156,10 @@
 <body id='body'>
 	<div id='head'></div>
 	<div class='fixed-top' id='fixed-top'>
-			<div style='display: flex; align-items: center; padding-bottom: 1em; padding-left: 2em; font-size: 1em;'>
+			<div style='display: flex; align-items: center; padding-top: .5em; padding-left: 5em; font-size: 1em;'>
 				<b>SimplePCs</b>
 			</div>
-		<ul class='menu'>
+		<ul class='menu' id='menu'>
 			<li><a class='menu-item' href='#head'>Home</a></li>
 			<li><a class='menu-item' href='#initial_text'>Pricing</a></li>
 			<li><a class='menu-item' href='#initial_text'>About</a></li>
@@ -543,35 +542,39 @@ function init() {
 }
 
 function config_page() {
-	const menuItems = document.querySelectorAll(".menu-item");
 	menuItems.forEach( 
 		function(menuItem) { 
 			menuItem.addEventListener("click", toggle_menu);
 	})
-	const hamburger = document.querySelector(".hamburger");
 	hamburger.addEventListener("click", toggle_menu);
-	return set_colors();
+	if (set_colors() != 1) {
+		console.log("set_colors failed");
+		return 0;
+	}
+	return 1;
 }
 
 const closeIcon= document.querySelector(".closeIcon");
 const menuIcon = document.querySelector(".menuIcon");
 const menu = document.querySelector(".menu");
+const menuItems = document.querySelectorAll(".menu-item");
+const hamburger = document.querySelector(".hamburger");
 
 function toggle_menu() {
-	if (menu.classList.contains("show_menu")) {
-		menu.classList.remove("show_menu");
+	if (menu.classList.contains("show-menu")) {
+		menu.classList.remove("show-menu");
 		closeIcon.style.display = "none";
 		menuIcon.style.display = "block";
 	} else {
-		menu.classList.add("show_menu");
+		menu.classList.add("show-menu");
 		closeIcon.style.display = "block";
 		menuIcon.style.display = "none";
 	}
+	return 1;
 }
 
 init();
 render_all_images();
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 </script>
