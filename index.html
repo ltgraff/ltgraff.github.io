@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap">
@@ -75,15 +76,6 @@
 			margin: 0;
 	     }
 
-		.top-item {
-			overflow: hidden;
-			display: flex;
-			font-size: .75em;
-			align-items: center;
-			justify-content: center;
-			padding-right: 2em;
-		}
-
   		.column1 {
 		}
 
@@ -121,20 +113,64 @@
 			background-color: black;
 		}
 
+		.hamburger {
+			position: fixed;
+			z-index: 100;
+			top: 1rem;
+			right: 1rem;
+			padding: 4px;
+			cursor: pointer;
+		}
+
+		.closeIcon {
+			display: none;
+		}
+
+		.menu {
+			position: fixed;
+			transform: translateY(-100%);
+			transition: transform 0.2s;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 9;
+			list-style: none;
+		}
+
+		.menu-item {
+			overflow: hidden;
+			display: flex;
+			font-size: 2em;
+			margin: 2em 4em;
+			align-items: center;
+			justify-content: center;
+			padding-right: 0em;
+		}
+
+		.show_menu {
+			transform: translateY(0);
+		}
+
     </style>
 </head>
 <body id='body'>
 	<div id='head'></div>
 	<div class='fixed-top' id='fixed-top'>
-		<div class='top-item' style='width: 40%;'>
-			<b>SimplePCs</b>
-		</div>
-		<div class='top-item' style='display: flex; justify-content: space-between; padding-right: 2em; width: 60%;'>
-			<a href='#head'>Home</a>
-			<a href='#initial_text'>Pricing</a>
-			<a href='#initial_text'>About</a>
-			<a href='mailto:bens_fulcrum@yahoo.com'>Email</a>
-		</div>
+			<div style='display: flex; align-items: center; padding-bottom: 1em; padding-left: 2em; font-size: 1em;'>
+				<b>SimplePCs</b>
+			</div>
+		<ul class='menu'>
+			<li><a class='menu-item' href='#head'>Home</a></li>
+			<li><a class='menu-item' href='#initial_text'>Pricing</a></li>
+			<li><a class='menu-item' href='#initial_text'>About</a></li>
+			<li><a class='menu-item' href='mailto:bens_fulcrum@yahoo.com'>Email</a></li>
+		</ul>
+		<button class="hamburger">
+			<!-- material icons https://material.io/resources/icons/ -->
+			<i class="menuIcon material-icons">menu</i>
+			<i class="closeIcon material-icons">close</i>
+		</button>
 	</div>
 	<div class='indent'>
 		<div class='column2' id='dynamic_content0' style='padding-top: 5em;'></div>
@@ -451,7 +487,7 @@ window.onresize = () => render_all_images();
 function set_colors() {
 	const fixed_top = document.getElementById('fixed-top');
 	if (!fixed_top) {
-		console.log("Could not find fixed-top");
+		console.log("Could not find fixed-top element");
 		return 0;
 	}
 	fixed_top.style.backgroundColor = top_bg_color;
@@ -459,7 +495,7 @@ function set_colors() {
 
 	const body = document.getElementById('body');
 	if (!body) {
-		console.log("Could not find fixed-top");
+		console.log("Could not find body element");
 		return 0;
 	}
 	body.style.backgroundColor = bg_color;
@@ -467,7 +503,7 @@ function set_colors() {
 
 	const button1 = document.getElementById('button1');
 	if (!button1) {
-		console.log("Could not find fixed-top");
+		console.log("Could not find button1 element");
 		return 0;
 	}
 	button1.style.backgroundColor = top_bg_color;
@@ -480,6 +516,9 @@ function set_colors() {
 		button1.style.backgroundColor = top_bg_color;
 		button1.style.color = top_fg_color;
 	});
+
+	menu.style.backgroundColor = top_bg_color;
+	menu.style.color = top_fg_color;
 	return 1;
 }
 
@@ -500,11 +539,39 @@ function init() {
 		g_images[i].layout = g_image_names[i].layout;
 		g_images[i].set_dimensions(g_image_names[i].width, g_image_names[i].height);
 	}
+	return config_page();
+}
+
+function config_page() {
+	const menuItems = document.querySelectorAll(".menu-item");
+	menuItems.forEach( 
+		function(menuItem) { 
+			menuItem.addEventListener("click", toggle_menu);
+	})
+	const hamburger = document.querySelector(".hamburger");
+	hamburger.addEventListener("click", toggle_menu);
 	return set_colors();
+}
+
+const closeIcon= document.querySelector(".closeIcon");
+const menuIcon = document.querySelector(".menuIcon");
+const menu = document.querySelector(".menu");
+
+function toggle_menu() {
+	if (menu.classList.contains("show_menu")) {
+		menu.classList.remove("show_menu");
+		closeIcon.style.display = "none";
+		menuIcon.style.display = "block";
+	} else {
+		menu.classList.add("show_menu");
+		closeIcon.style.display = "block";
+		menuIcon.style.display = "none";
+	}
 }
 
 init();
 render_all_images();
+
 
 ////////////////////////////////////////////////////////////////////////////////////
 </script>
