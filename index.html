@@ -175,22 +175,21 @@
 
 		.ul_centered {
 			/*display: inline-block;*/
-			text-align: left;
 			list-style-type: disc;
+			list-style-position: outside;
 		}
 
 		li {
 			/*display: inline;*/
-			padding-left: 2em;
-			padding-right: 2em;
 		}
 
 		.scroll_table {
-			width: 300vw;
+			/* Must match amount of items */
+			width: 400vw;
 		}
 
 		.table_wrapper {
-			overflow-x: auto;
+			overflow-x: scroll;
 			scroll-snap-type: x mandatory;
 		}
 
@@ -270,7 +269,7 @@
 					<div>
 					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
 					</div>
-					<div class='column2' style='text-align: center; width: 100%;'>
+					<div class='column2' style='text-align: left; padding-left: 50vw; width: 100%;'>
 						<br />
 						Data Backup
 						<br />
@@ -288,7 +287,7 @@
 					<div>
 					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
 					</div>
-					<div class='column2' style='text-align: center; width: 100%;'>
+					<div class='column2' style='text-align: left; padding-left: 50vw; width: 100%;'>
 						<br />
 						Repair
 						<br />
@@ -306,7 +305,7 @@
 					<div>
 					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
 					</div>
-					<div class='column2' style='text-align: center; width: 100%;'>
+					<div class='column2' style='text-align: left; padding-left: 50vw; width: 100%;'>
 						<br />
 						Networking
 						<br />
@@ -319,23 +318,30 @@
 					</div>
 					</div>
 				</td>
+				<td style='width: 100vw;'>
+					<div style='width: 100%; display: flex; flex-direction: column;'>
+					<div>
+					<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
+					</div>
+					<div class='column2' style='text-align: left; padding-left: 50vw; width: 100%;'>
+						<br />
+						Tutoring
+						<br />
+						<br />
+						<ul class='ul_centered'>
+							<li>Coding: Javascript, C, Java, Python</li>
+							<li>Computer training</li>
+							<li>Basic hardware troubleshooting</li>
+						</ul>
+					</div>
+					</div>
+				</td>
 			</tr>
 		</table>
 	</div>
+	<!--<img id='arrows_scroll.jpg' src='arrows_scroll.jpg' alt='' style='width: 30%; margin-left: auto; margin-right: auto; display: block;'></img>-->
 
 	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
-	<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
-	<br />
-	<br />
-	<div class='column2' style='text-align: center; width: 100%;'>
-		Tutoring
-		<br />
-		<ul class='ul_centered'>
-			<li>Coding: Javascript, C, Java, Python</li>
-			<li>Computer training</li>
-			<li>Basic hardware troubleshooting</li>
-		</ul>
-	</div>
 	<br />
 	<br />
 	<div class='column2' style='text-align: center; width: 100%; font-size: .75em;' id='is_mobile'></div>
