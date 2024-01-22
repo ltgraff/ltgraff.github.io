@@ -66,8 +66,8 @@
 			margin: 0;
 			font-weight: bold;
 			width: 100%;
-			overflow-x: hidden;
-			position: absolute;
+	/*		overflow-x: hidden;
+			position: absolute;*/
         }
 
         .fixed-top {
@@ -178,6 +178,20 @@
 			text-align: left;
 		}
 
+		.scroll_table {
+			width: 200%;
+			/*width: 200em;*/
+		}
+
+		.table_wrapper {
+			overflow-x: scroll;
+		}
+
+		td {
+			padding-left: 2em;
+			padding-right: 2em;
+		}
+
     </style>
 </head>
 <body id='body'>
@@ -215,7 +229,7 @@
 		<br />
 		<h1 style='text-align: center;'>
 			<b>
-				Have computers just work!</h1>
+				Keeping Tech Simple</h1>
 			</b>
 		<br />
 		<div style='display: flex; justify-content: center;'>
@@ -234,45 +248,59 @@
 
 	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
 
-	<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
-	<br />
-	<br />
-	<div class='column2' style='text-align: center; width: 100%;'>
-		Data
-		<br />
-		<ul class='ul_centered'>
-			<li>Pictures</li>
-			<li>Documents</li>
-			<li>Email</li>
-		</ul>
-	</div>
-	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
-	<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
-	<br />
-	<br />
-	<div class='column2' style='text-align: center; width: 100%;'>
-		Repair
-		<br />
-		<ul class='ul_centered'>
-			<li>Fix broken laptops or desktops</li>
-			<li>Installation of new hardware</li>
-			<li>Printer or accessory installation and configuration</li>
-		</ul>
-	</div>
-	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
 
-	<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
-	<br />
-	<br />
-	<div class='column2' style='text-align: center; width: 100%;'>
-		Networking
-		<br />
-		<ul class='ul_centered'>
-			<li>Pictures</li>
-			<li>Documents</li>
-			<li>Email</li>
-		</ul>
+	<div class='table_wrapper'>
+		<table class='scroll_table'>
+			<tr>
+				<td>
+					<div style='width: 100%; display: flex; flex-direction: column;'>
+					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
+					<div class='column2' style='text-align: center; width: 100%;'>
+						<br />
+						Data
+						<br />
+						<ul class='ul_centered'>
+							<li>Pictures</li>
+							<li>Documents</li>
+							<li>Email</li>
+						</ul>
+					</div>
+					</div>
+				</td>
+				<td>
+					<div style='width: 100%; display: flex; flex-direction: column;'>
+					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
+					<div class='column2' style='text-align: center; width: 100%;'>
+						<br />
+						Repair
+						<br />
+						<ul class='ul_centered'>
+							<li>Fix broken laptops or desktops</li>
+							<li>Installation of new hardware</li>
+							<li>Printer or accessory installation and configuration</li>
+						</ul>
+					</div>
+					</div>
+				</td>
+				<td>
+					<div style='width: 100%; display: flex; flex-direction: column;'>
+					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
+					<div class='column2' style='text-align: center; width: 100%;'>
+						<br />
+						Networking
+						<br />
+						<ul class='ul_centered'>
+							<li>Pictures</li>
+							<li>Documents</li>
+							<li>Email</li>
+						</ul>
+					</div>
+					</div>
+				</td>
+			</tr>
+		</table>
 	</div>
+
 	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
 	<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
 	<br />
@@ -572,18 +600,26 @@ function config_page() {
 	page_elem = document.getElementById("is_mobile");
 	if (!page_elem)
 		return 0;
-	if (is_mobile())
-		ret = "Mobile website";
-	else
-		ret = "Desktop website";
-	page_elem.innerHTML = ret;
-	return 1;
+	if (is_mobile()) {
+		page_elem.innerHTML = "Mobile website";
+		return mobile_render();
+	}
+	page_elem.innerHTML = "Desktop website";
+	return desktop_render();
 }
 
 function is_mobile() {
 	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
 		return 1;
 	return 0;
+}
+
+function mobile_render() {
+	return 1;
+}
+
+function desktop_render() {
+	return 1;
 }
 
 const closeIcon= document.querySelector(".closeIcon");
