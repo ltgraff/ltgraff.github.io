@@ -219,7 +219,7 @@
 			</b>
 		<br />
 		<div style='display: flex; justify-content: center;'>
-		<p style='margin-left: 1em; margin-right: 1em; width: 30%;'>
+		<p style='margin-left: 1em; margin-right: 1em; width: 50%;'>
 			<b>
 				For over 20 years, we have been fixing computers, troubleshooting network problems, configuring settings, and installing/removing parts. Let us simplify your PC problems!
 			</b>
@@ -234,7 +234,7 @@
 
 	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
 
-	<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt='' style='width: 30%; margin-left: auto; margin-right: auto; display: block;'></img>
+	<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
 	<br />
 	<br />
 	<div class='column2' style='text-align: center; width: 100%;'>
@@ -247,7 +247,7 @@
 		</ul>
 	</div>
 	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
-	<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt='' style='width: 30%; margin-left: auto; margin-right: auto; display: block;'></img>
+	<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
 	<br />
 	<br />
 	<div class='column2' style='text-align: center; width: 100%;'>
@@ -261,7 +261,7 @@
 	</div>
 	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
 
-	<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt='' style='width: 30%; margin-left: auto; margin-right: auto; display: block;'></img>
+	<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
 	<br />
 	<br />
 	<div class='column2' style='text-align: center; width: 100%;'>
@@ -274,7 +274,7 @@
 		</ul>
 	</div>
 	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
-	<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt='' style='width: 30%; margin-left: auto; margin-right: auto; display: block;'></img>
+	<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
 	<br />
 	<br />
 	<div class='column2' style='text-align: center; width: 100%;'>
@@ -286,6 +286,9 @@
 			<li>Printer or accessory installation and configuration</li>
 		</ul>
 	</div>
+	<br />
+	<br />
+	<div class='column2' style='text-align: center; width: 100%; font-size: .75em;' id='is_mobile'></div>
 	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
@@ -554,6 +557,9 @@ function init() {
 }
 
 function config_page() {
+	let page_elem;
+	let ret;
+
 	menuItems.forEach( 
 		function(menuItem) { 
 			menuItem.addEventListener("click", toggle_menu);
@@ -563,7 +569,21 @@ function config_page() {
 		console.log("set_colors failed");
 		return 0;
 	}
+	page_elem = document.getElementById("is_mobile");
+	if (!page_elem)
+		return 0;
+	if (is_mobile())
+		ret = "Mobile website";
+	else
+		ret = "Desktop website";
+	page_elem.innerHTML = ret;
 	return 1;
+}
+
+function is_mobile() {
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
+		return 1;
+	return 0;
 }
 
 const closeIcon= document.querySelector(".closeIcon");
