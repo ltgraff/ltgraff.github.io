@@ -176,6 +176,13 @@
 		.ul_centered {
 			display: inline-block;
 			text-align: left;
+			list-style-type: disc;
+		}
+
+		li {
+			display: inline;
+			padding-left: 2em;
+			padding-right: 2em;
 		}
 
 		.scroll_table {
@@ -184,13 +191,16 @@
 		}
 
 		.table_wrapper {
-			overflow-x: scroll;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
 		}
 
 		td {
-			padding-left: 2em;
-			padding-right: 2em;
+			scroll-snap-align: center;
+			padding-left: 15em;
+			padding-right: 15em;
 		}
+
 
     </style>
 </head>
@@ -229,8 +239,9 @@
 		<br />
 		<h1 style='text-align: center;'>
 			<b>
-				Keeping Tech Simple</h1>
+				Keeping Tech Simple
 			</b>
+		</h1>
 		<br />
 		<div style='display: flex; justify-content: center;'>
 		<p style='margin-left: 1em; margin-right: 1em; width: 50%;'>
@@ -249,15 +260,24 @@
 	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
 
 
+		<h1 style='text-align: center;'>
+			<b>
+				Services
+			</b>
+		</h1>
+		<br />
 	<div class='table_wrapper'>
 		<table class='scroll_table'>
 			<tr>
 				<td>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
-					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
+					<div>
+					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
+					</div>
 					<div class='column2' style='text-align: center; width: 100%;'>
 						<br />
-						Data
+						Data Backup
+						<br />
 						<br />
 						<ul class='ul_centered'>
 							<li>Pictures</li>
@@ -269,25 +289,31 @@
 				</td>
 				<td>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
-					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
+					<div>
+					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
+					</div>
 					<div class='column2' style='text-align: center; width: 100%;'>
 						<br />
 						Repair
 						<br />
+						<br />
 						<ul class='ul_centered'>
-							<li>Fix broken laptops or desktops</li>
-							<li>Installation of new hardware</li>
-							<li>Printer or accessory installation and configuration</li>
+							<li>laptops and desktops</li>
+							<li>New hardware</li>
+							<li>Printer and Accessories</li>
 						</ul>
 					</div>
 					</div>
 				</td>
 				<td>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
-					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt='' style='width: 80%; margin-left: auto; margin-right: auto; display: block;'></img>
+					<div>
+					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
+					</div>
 					<div class='column2' style='text-align: center; width: 100%;'>
 						<br />
 						Networking
+						<br />
 						<br />
 						<ul class='ul_centered'>
 							<li>Pictures</li>
@@ -359,7 +385,7 @@ var g_image_names = [
 		id: "pexels-jopwell-2422293.jpg",
 		alt: "diverse group of people working on networking and computers",
 		width: 1000,
-		height: 711,
+		height: 667,
 		screen_ratio: 580/1920,
 		layout: 1
 	},
