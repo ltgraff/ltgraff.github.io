@@ -174,13 +174,13 @@
 		}
 
 		.ul_centered {
-			/*display: inline-block;*/
 			list-style-type: disc;
-			list-style-position: outside;
+			list-style-position: inside;
+			display: inline-block;
 		}
 
 		li {
-			/*display: inline;*/
+			text-align: left;
 		}
 
 		.scroll_table {
@@ -261,7 +261,7 @@
 			</b>
 		</h1>
 		<br />
-	<div class='table_wrapper'>
+	<div class='table_wrapper' id='table_wrapper'>
 		<table class='scroll_table'>
 			<tr>
 				<td style='width: 100vw;'>
@@ -269,7 +269,7 @@
 					<div>
 					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
 					</div>
-					<div class='column2' style='text-align: left; padding-left: 50vw; width: 100%;'>
+					<div class='column2' style='text-align: center; width: 100%;'>
 						<br />
 						Data Backup
 						<br />
@@ -287,7 +287,7 @@
 					<div>
 					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
 					</div>
-					<div class='column2' style='text-align: left; padding-left: 50vw; width: 100%;'>
+					<div class='column2' style='text-align: center; width: 100%;'>
 						<br />
 						Repair
 						<br />
@@ -305,7 +305,7 @@
 					<div>
 					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
 					</div>
-					<div class='column2' style='text-align: left; padding-left: 50vw; width: 100%;'>
+					<div class='column2' style='text-align: center; width: 100%;'>
 						<br />
 						Networking
 						<br />
@@ -323,7 +323,7 @@
 					<div>
 					<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
 					</div>
-					<div class='column2' style='text-align: left; padding-left: 50vw; width: 100%;'>
+					<div class='column2' style='text-align: center; width: 100%;'>
 						<br />
 						Tutoring
 						<br />
@@ -670,6 +670,20 @@ function toggle_menu() {
 }
 
 init();
+
+function set_interval() {
+	let page_elem = document.getElementById("table_wrapper");
+	if (!table_wrapper) {
+		console.log("table_wrapper not found");
+		return 1;
+	}
+	//console.log("scrolling..");
+	page_elem.scrollBy({left: 1000});
+	setTimeout(set_interval, 2000);
+}
+
+set_interval();
+
 //render_all_images();
 
 ////////////////////////////////////////////////////////////////////////////////////
