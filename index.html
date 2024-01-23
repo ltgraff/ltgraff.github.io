@@ -262,7 +262,7 @@
 		</h1>
 		<br />
 	<div class='table_wrapper' id='table_wrapper'>
-		<table class='scroll_table'>
+		<table class='scroll_table' id='scroll_table'>
 			<tr>
 				<td style='width: 100vw;'>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
@@ -339,7 +339,10 @@
 			</tr>
 		</table>
 	</div>
-	<!--<img id='arrows_scroll.jpg' src='arrows_scroll.jpg' alt='' style='width: 30%; margin-left: auto; margin-right: auto; display: block;'></img>-->
+	<br />
+	<div style='text-align: center; justify-content: center; align-items: center; width: 100%; display: block; margin-left: auto; margin-right: auto;'>
+		<div class='section-seperator' id='dynamic_conent'></div>
+	</div>
 
 	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
 	<br />
@@ -355,6 +358,8 @@ var top_fg_color = "#181909";
 
 var bg_color = "#ecc260";
 var fg_color = "#181909";
+
+var g_scroll_item = 0;
 
 // List of image details
 // screen_ratio is how wide the image should be on a 1920 screen
@@ -672,19 +677,53 @@ function toggle_menu() {
 init();
 
 function set_interval() {
+	setTimeout(set_interval, 2000);
+	bullets_update();
+	if (g_scroll_item === -1) {
+		g_scroll_item ++;
+		return 0;
+	}
+
+	let w = window.innerWidth * g_scroll_item;
 	let page_elem = document.getElementById("table_wrapper");
-	if (!table_wrapper) {
+	if (!page_elem) {
 		console.log("table_wrapper not found");
 		return 1;
 	}
-	//console.log("scrolling..");
-	page_elem.scrollBy({left: 1000});
-	setTimeout(set_interval, 2000);
+	let scroll_table = document.getElementById("scroll_table");
+	if (!scroll_table) {
+		console.log("scroll_table not found");
+		return 1;
+	}
+	g_scroll_item ++;
+	if (g_scroll_item >= scroll_table.rows[0].cells.length)
+		g_scroll_item = 0;
+	page_elem.scrollTo({"left": w});
+}
+
+function bullets_update() {
+	let ret = "";
+	let bullet_elem = document.getElementById("dynamic_conent");
+	if (!bullet_elem) {
+		console.log("bullet element not found");
+		return 1;
+	}
+	let scroll_table = document.getElementById("scroll_table");
+	if (!scroll_table) {
+		console.log("scroll_table not found");
+		return 1;
+	}
+
+	for (i = 0; i < scroll_table.rows[0].cells.length; i++) {
+		if (i === g_scroll_item)
+			ret += "<img id='bullet_full.png' src='bullet_full.png' alt='' style='width: 1em; height: auto;'></img>";
+		else
+			ret += "<img id='bullet_empty.png' src='bullet_empty.png' alt='' style='width: 1em; height: auto;'></img>";
+	}
+	bullet_elem.innerHTML = ret;
 }
 
 set_interval();
-
-//render_all_images();
 
 ////////////////////////////////////////////////////////////////////////////////////
 </script>
