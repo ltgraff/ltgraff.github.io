@@ -360,6 +360,7 @@ var bg_color = "#ecc260";
 var fg_color = "#181909";
 
 var g_scroll_item = 0;
+var g_last_bullet = -1;
 
 // List of image details
 // screen_ratio is how wide the image should be on a 1920 screen
@@ -617,9 +618,43 @@ function init() {
 	return config_page();
 }
 
+function scroll_table_items() {
+	let scroll_table = document.getElementById("scroll_table");
+	if (!scroll_table) {
+		console.log("scroll_table not found");
+		return -1;
+	}
+	return scroll_table.rows[0].cells.length;
+}
+
+function scroll_table_position() {
+	let table_wrapper = document.getElementById("table_wrapper");
+	if (!table_wrapper) {
+		console.log("table_wrapper not found");
+		return -1;
+	}
+	let items = scroll_table_items();
+	return Math.round((table_wrapper.scrollLeft/table_wrapper.scrollWidth)*items);
+}
+
 function config_page() {
 	let page_elem;
 	let ret;
+
+	let scroll_table = document.getElementById("table_wrapper");
+	if (!scroll_table) {
+		console.log("scroll_table not found");
+		return 1;
+	}
+	scroll_table.addEventListener('scroll', function() { 
+		bullets_update();
+		let w = this.scrollWidth / scroll_table_items();
+		let diff = this.scrollLeft - (scroll_table_position() * w);
+		if (diff < 1)
+			diff *= -1;
+		if (diff > 4) // If the scroll is off by at least 5, assume it was the user
+			g_scroll_item = -2;
+	});
 
 	menuItems.forEach( 
 		function(menuItem) { 
@@ -674,11 +709,10 @@ function toggle_menu() {
 	return 1;
 }
 
-init();
-
 function set_interval() {
+	if (g_scroll_item === -2)
+		return 0;
 	setTimeout(set_interval, 2000);
-	bullets_update();
 	if (g_scroll_item === -1) {
 		g_scroll_item ++;
 		return 0;
@@ -696,34 +730,37 @@ function set_interval() {
 		return 1;
 	}
 	g_scroll_item ++;
-	if (g_scroll_item >= scroll_table.rows[0].cells.length)
+	if (g_scroll_item >= scroll_table_items())
 		g_scroll_item = 0;
 	page_elem.scrollTo({"left": w});
+	return 0;
 }
 
 function bullets_update() {
+	if (g_last_bullet === scroll_table_position()) // No need to update html, so return
+		return 0;
+
 	let ret = "";
 	let bullet_elem = document.getElementById("dynamic_conent");
 	if (!bullet_elem) {
 		console.log("bullet element not found");
 		return 1;
 	}
-	let scroll_table = document.getElementById("scroll_table");
-	if (!scroll_table) {
-		console.log("scroll_table not found");
-		return 1;
-	}
-
-	for (i = 0; i < scroll_table.rows[0].cells.length; i++) {
-		if (i === g_scroll_item)
+	for (i = 0; i < scroll_table_items(); i++) {
+		if (i === scroll_table_position()) {
 			ret += "<img id='bullet_full.png' src='bullet_full.png' alt='' style='width: 1em; height: auto;'></img>";
-		else
-			ret += "<img id='bullet_empty.png' src='bullet_empty.png' alt='' style='width: 1em; height: auto;'></img>";
+			g_last_bullet = i;
+		} else {
+			ret += "<img id='bullet_empty.png' src='bullet_empty.png' alt='' style='width: 1em; height: auto;'></img>"; 
+		}
 	}
 	bullet_elem.innerHTML = ret;
+	return 0;
 }
 
+init();
 set_interval();
+bullets_update();
 
 ////////////////////////////////////////////////////////////////////////////////////
 </script>
