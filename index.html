@@ -348,6 +348,7 @@ var fg_color = "#181909";
 
 var g_scroll_item = -1;
 var g_last_bullet = -1;
+var g_listener_set = 0;
 
 window.onresize = () => {
 	page_config();
@@ -381,15 +382,16 @@ function set_colors() {
 	}
 	button1.style.backgroundColor = top_bg_color;
 	button1.style.color = top_fg_color;
-	button1.addEventListener('mouseenter', () => { 
-		button1.style.backgroundColor = '#000000';
-		button1.style.color = '#FFFFFF';
-	});
-	button1.addEventListener('mouseleave', () => { 
-		button1.style.backgroundColor = top_bg_color;
-		button1.style.color = top_fg_color;
-	});
-
+	if (!g_listener_set) {
+		button1.addEventListener('mouseenter', () => { 
+			button1.style.backgroundColor = '#000000';
+			button1.style.color = '#FFFFFF';
+		});
+		button1.addEventListener('mouseleave', () => { 
+			button1.style.backgroundColor = top_bg_color;
+			button1.style.color = top_fg_color;
+		});
+	}
 	menu.style.backgroundColor = top_bg_color;
 	menu.style.color = top_fg_color;
 	return 1;
@@ -404,24 +406,28 @@ function init() {
 		console.log("scroll_table not found");
 		return 1;
 	}
-	scroll_table.addEventListener('scroll', function() { 
-		bullets_update();
-		let w = this.scrollWidth / scroll_table_items();
-		let diff = this.scrollLeft - (scroll_table_position() * w);
-		if (diff < 1)
-			diff *= -1;
-		if (diff > 4) // If the scroll is off by at least 5, assume it was the user
-			g_scroll_item = -2;
-	});
+	if (!g_listener_set) {
+		scroll_table.addEventListener('scroll', function() { 
+			bullets_update();
+			let w = this.scrollWidth / scroll_table_items();
+			let diff = this.scrollLeft - (scroll_table_position() * w);
+			if (diff < 1)
+				diff *= -1;
+			if (diff > 4) // If the scroll is off by at least 5, assume it was the user
+				g_scroll_item = -2;
+		});
+	}
 
 	menuItems.forEach( 
 		function(menuItem) { 
 			menuItem.addEventListener("click", toggle_menu);
 	})
-	hamburger.addEventListener("click", toggle_menu);
-	if (set_colors() != 1) {
-		console.log("set_colors failed");
-		return 0;
+	if (!g_listener_set) {
+		hamburger.addEventListener("click", toggle_menu);
+		if (set_colors() != 1) {
+			console.log("set_colors failed");
+			return 0;
+		}
 	}
 	return page_config();
 }
