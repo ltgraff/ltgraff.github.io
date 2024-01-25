@@ -9,43 +9,68 @@
 	<meta name='description' content='SimplePCs focuses on backing up important data like pictures or documents, repairing desktops and laptops, and helping users with computer repair and component replacement'>
     <style>
 		@media screen and (max-width: 600px) {
-			.scroll_table {
+			.scroll-table {
 				width: 400vw;
 			}
 
-			.table_wrapper {
+			.table-wrapper {
 				overflow-x: scroll;
 				scroll-snap-type: x mandatory;
 			}
 
-			.table_cell {
+			.table-cell {
 				width: 100vw;
 				scroll-snap-align: center;
 			}
 
-			.table_row {
+			.table-row {
 				display: grid;
 				grid-auto-flow: column;
+			}
+
+			.hamburger {
+				position: fixed;
+				top: 2.5em;
+				right: 8em;
+				z-index: 9999;
+				padding: .75em;
+				cursor: pointer;
+			}
+
+			.desktop-heading {
+				display: none;
 			}
 		}
 
 		@media screen and (min-width: 600px) {
-			.scroll_table {
+			.scroll-table {
 				width: 100vw;
 				border-spacing: 5em;
 			}
 
-			.table_wrapper {
+			.table-wrapper {
 			}
 
-			.table_cell {
+			.table-cell {
 				padding: 5em;
 			}
 
-			.table_row {
+			.table-row {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(40vw, 2fr));
 				grid-gap: 2em;
+			}
+
+			.hamburger {
+				display: none;
+			}
+
+			.desktop-heading {
+				align-text: right;
+				padding-top: 2em;
+				padding-right: 1em;
+				margin-left: 25vw;
+				font-size: 1em;
 			}
 		}
 
@@ -95,7 +120,6 @@
 			border-bottom-style: solid;
 			border-width: 2px;
 			border-bottom-color: White;
-			font-size: 1em;
 	     }
 
 		.indent {
@@ -123,15 +147,6 @@
 		.button1:hover {
 			color: white;
 			background-color: black;
-		}
-
-		.hamburger {
-			position: fixed;
-			top: 2.5em;
-			right: 8em;
-			z-index: 9999;
-			padding: .75em;
-			cursor: pointer;
 		}
 
 		.closeIcon {
@@ -200,9 +215,27 @@
 <body id='body'>
 	<div id='head'></div>
 	<div class='fixed-top' id='fixed-top'>
-			<div style='display: flex; align-items: center; top: 4em; padding-left: 5em; font-size: 1em;'>
-				<b>SimplePCs</b>
-			</div>
+		<div style='text-align: center; padding-top: 2em; padding-left: 1em; font-size: 1em; width: 40%;'>
+			<b>SimplePCs</b>
+		</div>
+		<div class='desktop-heading' id='desktop-heading'>
+			<a href="#head" style="text-decoration: underline;">Home</a>
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			<a href="#initial_text" style="text-decoration: underline;">Pricing</a>
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			<a href="#initial_text" style="text-decoration: underline;">About</a>
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			<a href="mailto:help@simplepcs.tech" style="text-decoration: underline;">Email</a>
+		</div>
 		<ul class='menu' id='menu'>
 			<br />
 			<br />
@@ -257,10 +290,10 @@
 		</h1>
 		<br />
 	<div class='section-seperator' id='dynamic_conent'></div>
-	<div class='table_wrapper' id='table_wrapper'>
-		<div class='scroll_table' id='scroll_table'>
-			<div class='table_row' id='table_row'>
-				<div class='table_cell'>
+	<div class='table-wrapper' id='table-wrapper'>
+		<div class='scroll-table' id='scroll-table'>
+			<div class='table-row' id='table-row'>
+				<div class='table-cell'>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
 					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt=''></img>
 					<div style='text-align: center; width: 100%;'>
@@ -276,7 +309,7 @@
 					</div>
 					</div>
 				</div>
-				<div class='table_cell'>
+				<div class='table-cell'>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
 					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt=''></img>
 					<div style='text-align: center; width: 100%;'>
@@ -292,7 +325,7 @@
 					</div>
 					</div>
 				</div>
-				<div class='table_cell'>
+				<div class='table-cell'>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
 					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt=''></img>
 					<div style='text-align: center; width: 100%;'>
@@ -308,7 +341,7 @@
 					</div>
 					</div>
 				</div>
-				<div class='table_cell'>
+				<div class='table-cell'>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
 					<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt=''></img>
 					<div style='text-align: center; width: 100%;'>
@@ -401,9 +434,9 @@ function init() {
 	let page_elem;
 	let ret;
 
-	let scroll_table = document.getElementById("table_wrapper");
+	let scroll_table = document.getElementById("table-wrapper");
 	if (!scroll_table) {
-		console.log("scroll_table not found");
+		console.log("scroll-table not found");
 		return 1;
 	}
 	if (!g_listener_set) {
@@ -445,18 +478,18 @@ function page_config() {
 }
 
 function scroll_table_items() {
-	let table_row = document.getElementById("table_row");
+	let table_row = document.getElementById("table-row");
 	if (!table_row) {
-		console.log("table_row not found");
+		console.log("table-row not found");
 		return -1;
 	}
 	return table_row.childElementCount;
 }
 
 function scroll_table_position() {
-	let table_wrapper = document.getElementById("table_wrapper");
+	let table_wrapper = document.getElementById("table-wrapper");
 	if (!table_wrapper) {
-		console.log("table_wrapper not found");
+		console.log("table-wrapper not found");
 		return -1;
 	}
 	let items = scroll_table_items();
@@ -517,14 +550,14 @@ function set_interval() {
 		return 0;
 	}
 
-	let page_elem = document.getElementById("table_wrapper");
+	let page_elem = document.getElementById("table-wrapper");
 	if (!page_elem) {
-		console.log("table_wrapper not found");
+		console.log("table-wrapper not found");
 		return 1;
 	}
-	let scroll_table = document.getElementById("scroll_table");
+	let scroll_table = document.getElementById("scroll-table");
 	if (!scroll_table) {
-		console.log("scroll_table not found");
+		console.log("scroll-table not found");
 		return 1;
 	}
 	g_scroll_item ++;
