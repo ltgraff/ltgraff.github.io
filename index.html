@@ -8,14 +8,45 @@
 	<title>SimplePCs - Data backup and Computer Repair for the Martinsburg West Virginia area</title>
 	<meta name='description' content='SimplePCs focuses on backing up important data like pictures or documents, repairing desktops and laptops, and helping users with computer repair and component replacement'>
     <style>
-		@media only screen and (max-width: 600px) {
-			/*img {
-				width: calc(100% - 1em);
-			}*/
+		@media screen and (max-width: 600px) {
+			.scroll_table {
+				width: 400vw;
+			}
+
+			.table_wrapper {
+				overflow-x: scroll;
+				scroll-snap-type: x mandatory;
+			}
+
+			.table_cell {
+				width: 100vw;
+				scroll-snap-align: center;
+			}
+
+			.table_row {
+				display: grid;
+				grid-auto-flow: column;
+			}
 		}
 
-		.img-border {
-			border: 1px solid #000;
+		@media screen and (min-width: 600px) {
+			.scroll_table {
+				width: 100vw;
+				border-spacing: 5em;
+			}
+
+			.table_wrapper {
+			}
+
+			.table_cell {
+				padding: 5em;
+			}
+
+			.table_row {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(40vw, 2fr));
+				grid-gap: 2em;
+			}
 		}
 
 		head {
@@ -43,21 +74,7 @@
 		}
 
 		.section-seperator {
-		}
-
-		.container-rows {
-			margin-left: 1.5em;
-			margin-right: 1.5em; 
-			width: calc(100% - 3em);
-			display: flex;
-			flex-direction: column;
-		}
-
-		.container_columns {
-			margin-left: 1.5em;
-			margin-right: 1.5em; 
-			width: calc(100% - 3em);
-			display: flex;
+			height: 10em;
 		}
 
 		body {
@@ -66,8 +83,6 @@
 			margin: 0;
 			font-weight: bold;
 			width: 100%;
-	/*		overflow-x: hidden;
-			position: absolute;*/
         }
 
         .fixed-top {
@@ -83,21 +98,9 @@
 			font-size: 1em;
 	     }
 
-  		.column1 {
-		}
-
-		.column2 {
-		}
-
-		.column-seperator {
-		}
-
 		.indent {
 			margin: 0;
 			width: 100%;
-		/*	margin-left: 1.5em;
-			margin-right: 1.5em;
-			width: calc(100% - 3em);*/
 		}
 
 		a {
@@ -183,20 +186,14 @@
 			text-align: left;
 		}
 
-		.scroll_table {
-			/* Must match amount of items */
-			width: 400vw;
+		.img-border {
+			border: 1px solid #000;
+			width: 100%; 
+			height: auto;
+			margin-left: auto; 
+			margin-right: auto; 
+			display: block;
 		}
-
-		.table_wrapper {
-			overflow-x: scroll;
-			scroll-snap-type: x mandatory;
-		}
-
-		td {
-			scroll-snap-align: center;
-		}
-
 
     </style>
 </head>
@@ -209,10 +206,10 @@
 		<ul class='menu' id='menu'>
 			<br />
 			<br />
-			<li><a class='menu-item' href='#head'>Home</a></li>
-			<li><a class='menu-item' href='#initial_text'>Pricing</a></li>
-			<li><a class='menu-item' href='#initial_text'>About</a></li>
-			<li><a class='menu-item' href='mailto:bens_fulcrum@yahoo.com'>Email</a></li>
+			<li class='menu-item'><a href='#head'>Home</a></li>
+			<li class='menu-item'><a href='#initial_text'>Pricing</a></li>
+			<li class='menu-item'><a href='#initial_text'>About</a></li>
+			<li class='menu-item'><a href='mailto:bens_fulcrum@yahoo.com'>Email</a></li>
 		</ul>
 		<button class="hamburger">
 			<!-- material icons https://material.io/resources/icons/ -->
@@ -252,24 +249,21 @@
 			<button type='button' class='button1' id='button1' onclick="window.location.href='mailto: bens_fulcrum@yahoo.com'" style='width: 10em; font-size: 1em;'>Email Us</button>
 		</div>
 	</div>
-
-	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
-
+	<div class='section-seperator'></div>
 		<h1 style='text-align: center;'>
 			<b>
 				Services
 			</b>
 		</h1>
 		<br />
+	<div class='section-seperator' id='dynamic_conent'></div>
 	<div class='table_wrapper' id='table_wrapper'>
-		<table class='scroll_table' id='scroll_table'>
-			<tr>
-				<td style='width: 100vw;'>
+		<div class='scroll_table' id='scroll_table'>
+			<div class='table_row' id='table_row'>
+				<div class='table_cell'>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
-					<div>
-					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
-					</div>
-					<div class='column2' style='text-align: center; width: 100%;'>
+					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt=''></img>
+					<div style='text-align: center; width: 100%;'>
 						<br />
 						Data Backup
 						<br />
@@ -281,13 +275,11 @@
 						</ul>
 					</div>
 					</div>
-				</td>
-				<td style='width: 100vw;'>
+				</div>
+				<div class='table_cell'>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
-					<div>
-					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
-					</div>
-					<div class='column2' style='text-align: center; width: 100%;'>
+					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt=''></img>
+					<div style='text-align: center; width: 100%;'>
 						<br />
 						Repair
 						<br />
@@ -299,13 +291,11 @@
 						</ul>
 					</div>
 					</div>
-				</td>
-				<td style='width: 100vw;'>
+				</div>
+				<div class='table_cell'>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
-					<div>
-					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
-					</div>
-					<div class='column2' style='text-align: center; width: 100%;'>
+					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt=''></img>
+					<div style='text-align: center; width: 100%;'>
 						<br />
 						Networking
 						<br />
@@ -317,13 +307,11 @@
 						</ul>
 					</div>
 					</div>
-				</td>
-				<td style='width: 100vw;'>
+				</div>
+				<div class='table_cell'>
 					<div style='width: 100%; display: flex; flex-direction: column;'>
-					<div>
-					<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt='' style='width: 100%; margin-left: auto; margin-right: auto; display: block;'></img>
-					</div>
-					<div class='column2' style='text-align: center; width: 100%;'>
+					<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt=''></img>
+					<div style='text-align: center; width: 100%;'>
 						<br />
 						Tutoring
 						<br />
@@ -335,20 +323,19 @@
 						</ul>
 					</div>
 					</div>
-				</td>
-			</tr>
-		</table>
+				</div>
+			</div>
+		</div>
 	</div>
 	<br />
 	<div style='text-align: center; justify-content: center; align-items: center; width: 100%; display: block; margin-left: auto; margin-right: auto;'>
-		<div class='section-seperator' id='dynamic_conent'></div>
+	<div class='section-seperator' id='bullet_scroll_display'></div>
 	</div>
-
-	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
+	<div class='section-seperator'></div>
 	<br />
 	<br />
-	<div class='column2' style='text-align: center; width: 100%; font-size: .75em;' id='is_mobile'></div>
-	<div class='section-seperator' id='section-seperator999' style='height: 10em;'></div>
+	<div style='text-align: center; width: 100%; font-size: .75em;' id='is_mobile'></div>
+	<div class='section-seperator'></div>
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -359,206 +346,16 @@ var top_fg_color = "#181909";
 var bg_color = "#ecc260";
 var fg_color = "#181909";
 
-var g_scroll_item = 0;
+var g_scroll_item = -1;
 var g_last_bullet = -1;
 
-// List of image details
-// screen_ratio is how wide the image should be on a 1920 screen
-var g_image_names = [
-	{
-		id: "",
-		alt: "",
-		width: 0,
-		height: 0,
-		screen_ratio: 0,
-		layout: 1
-	},
-	{
-		id: "pexels-marcus-aurelius-6787953.jpg",
-		alt: "older couple using a touchpad to look at family data",
-		width: 1000,
-		height: 667,
-		screen_ratio: 580/1920,
-		layout: 1
-	},
-	{
-		id: "pexels-azamat-esenaliev-117729.jpg",
-		alt: "Hard drive and desktop troubleshooting and repair",
-		width: 1000,
-		height: 667,
-		screen_ratio: 580/1920,
-		layout: 1
-	},
-	{
-		id: "pexels-jopwell-2422293.jpg",
-		alt: "diverse group of people working on networking and computers",
-		width: 1000,
-		height: 667,
-		screen_ratio: 580/1920,
-		layout: 1
-	},
-	{
-		id: "pexels-olia-danilevich-4974914.jpg",
-		alt: "older gentleman working on webpages and domain hosting",
-		width: 1000,
-		height: 667,
-		screen_ratio: 580/1920,
-		layout: 1
-	},
-	{
-		id: "pexels-luis-gomes-546819.jpg",
-		alt: "computer monitor showing python code and learning in a classroom environment",
-		width: 1000,
-		height: 664,
-		screen_ratio: 580/1920,
-		layout: 1
-	}
-];
-
-class image_info {
-	constructor() {
-		this.width = 0;
-		this.height = 0;
-		this.size_ratio = 0;
-		this.id = "";
-		this.alt = "";
-		this.screen_ratio = 0;
-	}
-
-	set_dimensions(w, h) {
-		this.width = w;
-		this.height = h;
-		this.size_ratio = h/w;
-	}
+window.onresize = () => {
+	page_config();
 }
 
-var g_images = [ ];
-
-function render_rect_image(image, elem_width, elem_height) {
-	let ret = "";
-	let width = image.screen_ratio*window.innerWidth;
-	let height = image.size_ratio*width;
-	let left = 0;
-	let right = 0;
-	let top = 0;
-	let bottom = 0;
-	let xoffset = 0;
-	let yoffset = 0;
-	let add_ratio = (15/1920) * (window.innerWidth);
-
-	if (width < 2 || height < 2)
-		return ret;
-	switch (image.layout) {
-		case 0:
-		left += add_ratio;
-		top -= add_ratio;
-		xoffset = -30;
-		yoffset = (elem_height - height - 4);
-		break;
-
-		case 1:
-		left += add_ratio;
-		top += add_ratio;
-		break;
-
-		case 2:
-		left -= add_ratio;
-		top += add_ratio;
-		xoffset = (elem_width - width - 4)/2;
-		break;
-
-		default:
-		xoffset = (elem_width - width - 4)/2;
-		yoffset = (elem_height - height - 4)/2;
-		left -= add_ratio;
-		top -= add_ratio;
-		break;
-	}
-	// Rect3
-	ret += "<div style='position: absolute; width: "+
-			width+"px; height: "+height+
-			"px; margin-left: "+ (xoffset+left*3) +
-			"px; margin-right:"+ (xoffset+right*3) +
-			"px; margin-top: "+ (yoffset+top*3) +
-			"px; margin-bottom: "+ (yoffset+bottom*3) +
-			"px; background-color: rgba(117, 69, 0, 0.3);'></div>\n";
-			//"px; background-color: rgba(70, 200, 200, 0.3);'></div>\n";
-	// Rect2
-	ret += "<div style='position: absolute; width: "+
-			width+"px; height: "+height+
-			"px; margin-left: "+ (xoffset+left*2) +
-			"px; margin-right:"+ (xoffset+right*2) +
-			"px; margin-top: "+ (yoffset+top*2) +
-			"px; margin-bottom: "+ (yoffset+2+bottom*2) +
-			"px; background-color: rgba(142, 90, 6, 0.4);'></div>\n";
-			//"px; background-color: rgba(0, 250, 0, 0.4);'></div>\n";
-	// Rect1
-	ret += "<div style='position: absolute; width: "+
-			width+"px; height: "+height+
-			"px; margin-left: "+ (xoffset+left*1) +
-			"px; margin-right:"+ (xoffset+right*1) +
-			"px; margin-top: "+ (yoffset+top*1) +
-			"px; margin-bottom: "+ (yoffset+bottom*1) +
-			"px; background-color: rgba(243, 208, 116, 0.7);'></div>\n";
-			//"px; background-color: rgba(255, 0, 0, 0.7);'></div>\n";
-	// Image
-	ret += "<img id='"+image.id+"' src='"+image.id+
-		"' alt='"+image.alt+"' style='position: absolute; width: "+width+
-			"px; margin-left: "+ (xoffset) +
-			"px; margin-right:"+ (xoffset) +
-			"px; margin-top: "+ (yoffset) +
-			"px; margin-bottom: "+ (yoffset) +
-			"px; border: 2px solid #000;" +
-			"height: "+height+"px;'>\n";
-	return ret;
+function scrolling_stop() {
+	g_scroll_item = -2;
 }
-
-function render_all_images() {
-	let page_elem;
-	let image;
-	let ret;
-
-	for (let i = 0; i < g_images.length; i++) {
-		ret = "";
-		page_elem = document.getElementById("dynamic_content"+i);
-		if (!page_elem)
-			return 0;
-		image = g_images[i];
-		if (!image) {
-			console.log("Error: image: "+g_images[i].id+" could not be found, yet dynamic_conent"+i+" exists");
-			return 0;
-		}
-		ret += render_rect_image(image, page_elem.offsetWidth, page_elem.offsetHeight);
-		page_elem.innerHTML = ret;
-	}
-	return render_space();
-}
-
-function render_space() {
-	let ret;
-	let fn;
-	// Size on a 1920 display
-	let width = (450/1920)*window.innerWidth;
-	// Height/Width ratio
-	let height = (450/450)*width;
-
-	for (let i = 0; i < g_images.length; i++) {
-		ret = "";
-		fn = "section-seperator"+i;
-		page_elem = document.getElementById(fn);
-		if (!page_elem)
-			return 0;
-		ret = "<div class='"+fn+
-			"' id='"+fn+
-			"' style='width: calc(100% - 1em); "+
-			"height: "+height+
-			"px;'></div>";
-		page_elem.innerHTML = ret;
-	}
-	return 1;
-}
-
-window.onresize = () => render_all_images();
 
 function set_colors() {
 	const fixed_top = document.getElementById('fixed-top');
@@ -598,46 +395,7 @@ function set_colors() {
 	return 1;
 }
 
-/*
-* Load all images (and do not display them) with a width of 100, then determine the ratio based on height
-*/
 function init() {
-	let i = 0;
-	let ld = "";
-	let page_elem;
-
-	// Initial image load
-	for (i = 0; i < g_image_names.length; i++) {
-		g_images.push(new image_info());
-		g_images[i].id = g_image_names[i].id;
-		g_images[i].screen_ratio = g_image_names[i].screen_ratio;
-		g_images[i].alt = g_image_names[i].alt;
-		g_images[i].layout = g_image_names[i].layout;
-		g_images[i].set_dimensions(g_image_names[i].width, g_image_names[i].height);
-	}
-	return config_page();
-}
-
-function scroll_table_items() {
-	let scroll_table = document.getElementById("scroll_table");
-	if (!scroll_table) {
-		console.log("scroll_table not found");
-		return -1;
-	}
-	return scroll_table.rows[0].cells.length;
-}
-
-function scroll_table_position() {
-	let table_wrapper = document.getElementById("table_wrapper");
-	if (!table_wrapper) {
-		console.log("table_wrapper not found");
-		return -1;
-	}
-	let items = scroll_table_items();
-	return Math.round((table_wrapper.scrollLeft/table_wrapper.scrollWidth)*items);
-}
-
-function config_page() {
 	let page_elem;
 	let ret;
 
@@ -665,6 +423,10 @@ function config_page() {
 		console.log("set_colors failed");
 		return 0;
 	}
+	return page_config();
+}
+
+function page_config() {
 	page_elem = document.getElementById("is_mobile");
 	if (!page_elem)
 		return 0;
@@ -676,18 +438,49 @@ function config_page() {
 	return desktop_render();
 }
 
+function scroll_table_items() {
+	let table_row = document.getElementById("table_row");
+	if (!table_row) {
+		console.log("table_row not found");
+		return -1;
+	}
+	return table_row.childElementCount;
+}
+
+function scroll_table_position() {
+	let table_wrapper = document.getElementById("table_wrapper");
+	if (!table_wrapper) {
+		console.log("table_wrapper not found");
+		return -1;
+	}
+	let items = scroll_table_items();
+	return Math.round((table_wrapper.scrollLeft/table_wrapper.scrollWidth)*items);
+}
+
 function is_mobile() {
-	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
+	//if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
+	if (window.innerWidth < 601)
 		return 1;
 	return 0;
 }
 
 function mobile_render() {
+	g_last_bullet = -1;
+	set_interval();
+	if (bullets_update() === 0)
+		return 0;
 	return 1;
 }
 
 function desktop_render() {
-	return 1;
+	scrolling_stop();
+	let bullet_elem = document.getElementById("bullet_scroll_display");
+	if (!bullet_elem) {
+		console.log("bullet element not found");
+		return 1;
+	}
+	bullet_elem.innerHTML = "";
+	return 0;
 }
 
 const closeIcon= document.querySelector(".closeIcon");
@@ -718,7 +511,6 @@ function set_interval() {
 		return 0;
 	}
 
-	let w = window.innerWidth * g_scroll_item;
 	let page_elem = document.getElementById("table_wrapper");
 	if (!page_elem) {
 		console.log("table_wrapper not found");
@@ -730,28 +522,29 @@ function set_interval() {
 		return 1;
 	}
 	g_scroll_item ++;
-	if (g_scroll_item >= scroll_table_items())
+	if (g_scroll_item === scroll_table_items())
 		g_scroll_item = 0;
+	let w = window.innerWidth * g_scroll_item;
 	page_elem.scrollTo({"left": w});
 	return 0;
 }
 
 function bullets_update() {
-	if (g_last_bullet === scroll_table_position()) // No need to update html, so return
+	if (g_last_bullet === scroll_table_position()) // No need to update img
 		return 0;
 
 	let ret = "";
-	let bullet_elem = document.getElementById("dynamic_conent");
+	let bullet_elem = document.getElementById("bullet_scroll_display");
 	if (!bullet_elem) {
 		console.log("bullet element not found");
 		return 1;
 	}
 	for (i = 0; i < scroll_table_items(); i++) {
 		if (i === scroll_table_position()) {
-			ret += "<img id='bullet_full.png' src='bullet_full.png' alt='' style='width: 1em; height: auto;'></img>";
+			ret += "<img src='bullet_full.png' style='width: 1em; height: auto;'></img>";
 			g_last_bullet = i;
 		} else {
-			ret += "<img id='bullet_empty.png' src='bullet_empty.png' alt='' style='width: 1em; height: auto;'></img>"; 
+			ret += "<img src='bullet_empty.png' style='width: 1em; height: auto;'></img>"; 
 		}
 	}
 	bullet_elem.innerHTML = ret;
@@ -759,8 +552,6 @@ function bullets_update() {
 }
 
 init();
-set_interval();
-bullets_update();
 
 ////////////////////////////////////////////////////////////////////////////////////
 </script>
