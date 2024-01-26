@@ -508,7 +508,7 @@ function is_mobile() {
 
 function mobile_render() {
 	g_last_bullet = -1;
-	set_interval();
+	bullets_update();
 	return 1;
 }
 
@@ -540,33 +540,6 @@ function toggle_menu() {
 		menuIcon.style.display = "none";
 	}
 	return 1;
-}
-
-function set_interval() {
-	if (g_scroll_item === -2)
-		return 0;
-	setTimeout(set_interval, 3500);
-	if (g_scroll_item === -1) {
-		g_scroll_item ++;
-		return 0;
-	}
-
-	let page_elem = document.getElementById("table-wrapper");
-	if (!page_elem) {
-		console.log("table-wrapper not found");
-		return 1;
-	}
-	let scroll_table = document.getElementById("scroll-table");
-	if (!scroll_table) {
-		console.log("scroll-table not found");
-		return 1;
-	}
-	g_scroll_item ++;
-	if (g_scroll_item === scroll_table_items())
-		g_scroll_item = 0;
-	let w = window.innerWidth * g_scroll_item;
-	page_elem.scrollTo({"left": w});
-	return 0;
 }
 
 function bullets_update() {
