@@ -30,7 +30,10 @@
 
 			.hamburger {
 				position: fixed;
+				padding-bottom: 2em;
 				padding-top: 3em;
+				width: 4em;
+				height: 4em;
 				right: 8em;
 				z-index: 9999;
 				padding: .75em;
@@ -108,9 +111,9 @@
 			margin: 0;
 			font-weight: bold;
 			width: 100%;
-        }
+		}
 
-        .fixed-top {
+		.fixed-top {
 			position: fixed;
 			z-index: 999;
 			width: 100%;
@@ -244,11 +247,13 @@
 			<li class='menu-item'><a href='#initial_text'>About</a></li>
 			<li class='menu-item'><a href='mailto:bens_fulcrum@yahoo.com'>Email</a></li>
 		</ul>
+		<div style='width: 60%; justify-content: center; align-items: center; padding-top: 1em;'>
 		<button class="hamburger">
 			<!-- material icons https://material.io/resources/icons/ -->
 			<i class="menuIcon material-icons">menu</i>
 			<i class="closeIcon material-icons">close</i>
 		</button>
+		</div>
 	</div>
 	<br />
 	<br />
@@ -289,7 +294,6 @@
 			</b>
 		</h1>
 		<br />
-	<div class='section-seperator' id='dynamic_conent'></div>
 	<div class='table-wrapper' id='table-wrapper'>
 		<div class='scroll-table' id='scroll-table'>
 			<div class='table-row' id='table-row'>
@@ -542,7 +546,7 @@ function toggle_menu() {
 function set_interval() {
 	if (g_scroll_item === -2)
 		return 0;
-	setTimeout(set_interval, 2000);
+	setTimeout(set_interval, 3500);
 	if (g_scroll_item === -1) {
 		g_scroll_item ++;
 		return 0;
