@@ -30,7 +30,7 @@
 
 			.hamburger {
 				position: fixed;
-				padding-top: 2em;
+				padding-top: 3em;
 				right: 8em;
 				z-index: 9999;
 				padding: .75em;
@@ -506,8 +506,6 @@ function is_mobile() {
 function mobile_render() {
 	g_last_bullet = -1;
 	set_interval();
-	if (bullets_update() === 0)
-		return 0;
 	return 1;
 }
 
