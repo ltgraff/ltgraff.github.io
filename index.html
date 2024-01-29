@@ -8,73 +8,6 @@
 	<title>SimplePCs - Data backup and Computer Repair for the Martinsburg West Virginia area</title>
 	<meta name='description' content='SimplePCs focuses on backing up important data like pictures or documents, repairing desktops and laptops, and helping users with computer repair and component replacement'>
     <style>
-		@media screen and (max-width: 600px) {
-			.scroll-table {
-				width: 400vw;
-			}
-
-			.table-wrapper {
-				overflow-x: scroll;
-				scroll-snap-type: x mandatory;
-			}
-
-			.table-cell {
-				width: 100vw;
-				scroll-snap-align: center;
-			}
-
-			.table-row {
-				display: grid;
-				grid-auto-flow: column;
-			}
-
-			.hamburger {
-				position: fixed;
-				padding-bottom: 2em;
-				padding-top: 3em;
-				width: 4em;
-				height: 4em;
-				right: 8em;
-				z-index: 9999;
-				padding: .75em;
-				cursor: pointer;
-			}
-
-			.desktop-heading {
-				display: none;
-			}
-		}
-
-		@media screen and (min-width: 600px) {
-			.scroll-table {
-				width: 100vw;
-				border-spacing: 5em;
-			}
-
-			.table-wrapper {
-			}
-
-			.table-cell {
-				padding: 5em;
-			}
-
-			.table-row {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(40vw, 2fr));
-				grid-gap: 2em;
-			}
-
-			.hamburger {
-				display: none;
-			}
-
-			.desktop-heading {
-				align-text: right;
-				padding-top: 1em;
-				padding-left: 25vw;
-				font-size: 1em;
-			}
-		}
 
 		head {
 			margin: 0;
@@ -106,9 +39,7 @@
 
 		body {
 			font-family: 'montserrat', Sans-serif;
-			font-size: 1.2em;
 			margin: 0;
-			font-weight: bold;
 			width: 100%;
 		}
 
@@ -212,6 +143,91 @@
 			display: block;
 		}
 
+		/* Mobile */
+		@media screen and (max-width: 1200px) {
+			body {
+				font-size: 1.5em;
+			}
+
+			.scroll-table {
+				width: 100vw;
+			}
+
+			.table-cell {
+				width: 100vw;
+			}
+
+			.cell-description {
+				margin-top: 2em;
+				text-align: center; 
+				width: 100%;
+
+			}
+
+			.table-row {
+				display: grid;
+				grid-auto-flow: row;
+				grid-gap: 8em;
+			}
+
+			.hamburger {
+				position: fixed;
+				padding-bottom: 2em;
+				padding-top: 3em;
+				width: 4em;
+				height: 4em;
+				right: 8em;
+				z-index: 9999;
+				padding: .75em;
+				cursor: pointer;
+			}
+
+			.desktop-heading {
+				display: none;
+			}
+		}
+
+		/* Desktop */
+		@media screen and (min-width: 1200px) {
+			body {
+				font-size: 1.5em;
+			}
+
+			.cell-description {
+				text-align: left; 
+				width: 100%;
+				margin-left: 1em;
+
+			}
+
+			.scroll-table {
+				width: 100vw;
+				border-spacing: 5em;
+			}
+
+			.table-cell {
+				padding: 1em;
+				display: flex;
+			}
+
+			.table-row {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(40vw, 2fr));
+				grid-gap: 2em;
+			}
+
+			.hamburger {
+				display: none;
+			}
+
+			.desktop-heading {
+				align-text: right;
+				padding-top: 1em;
+				padding-left: 25vw;
+				font-size: 1em;
+			}
+		}
+
     </style>
 </head>
 <body id='body'>
@@ -287,91 +303,72 @@
 			</b>
 		</h1>
 		<br />
-	<div class='table-wrapper' id='table-wrapper'>
 		<div class='scroll-table' id='scroll-table'>
 			<div class='table-row' id='table-row'>
 				<div class='table-cell'>
-					<div style='width: 100%; display: flex; flex-direction: column;'>
 					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt=''></img>
-					<div style='text-align: center; width: 100%;'>
-						<br />
+					<div class='cell-description'>
+						<b>
 						Data Backup
+						</b>
 						<br />
 						<br />
-						<ul class='ul_centered'>
-							<li>Pictures</li>
-							<li>Documents</li>
-							<li>Email</li>
-						</ul>
-					</div>
+						Pictures, documents, emails, all of your data will be treated with the utmost importance. Data will be backed up to a DVD, thumb drive, or media of your choosing.
 					</div>
 				</div>
 				<div class='table-cell'>
-					<div style='width: 100%; display: flex; flex-direction: column;'>
 					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt=''></img>
-					<div style='text-align: center; width: 100%;'>
-						<br />
+					<div class='cell-description'>
+						<b>
 						Repair
+						</b>
 						<br />
 						<br />
-						<ul class='ul_centered'>
-							<li>Laptops and desktops</li>
-							<li>New hardware</li>
-							<li>Printers and Accessories</li>
-						</ul>
-					</div>
+						Repair services for laptops or desktops are available. Old computers can become like new again with our expert repair services!
 					</div>
 				</div>
 				<div class='table-cell'>
-					<div style='width: 100%; display: flex; flex-direction: column;'>
 					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt=''></img>
-					<div style='text-align: center; width: 100%;'>
-						<br />
+					<div class='cell-description'>
+						<b>
 						Networking
+						</b>
 						<br />
 						<br />
-						<ul class='ul_centered'>
-							<li>Network configuration</li>
-							<li>Firewalls</li>
-							<li>Websites</li>
-						</ul>
-					</div>
+						Your home or office network is important, both for your data and security. We can setup new hardware or troubleshoot to ensure your network runs as fast as possible!
 					</div>
 				</div>
 				<div class='table-cell'>
-					<div style='width: 100%; display: flex; flex-direction: column;'>
 					<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt=''></img>
-					<div style='text-align: center; width: 100%;'>
-						<br />
+					<div class='cell-description'>
+						<b>
 						Tutoring
+						</b>
 						<br />
 						<br />
-						<ul class='ul_centered'>
-							<li>Coding: Javascript, C, Java, Python</li>
-							<li>Computer training</li>
-							<li>Instruction</li>
-						</ul>
-					</div>
+						We offer tutoring services for various programming or scripting classes to include languages such as Java, HTML, css, Javascript, or Python. We also offer tutoring for Operating System usage or task training.
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	<br />
+	<div style="background-image: url('about_background.png'); background-repeat: repeat;">
 	<div style='text-align: center; justify-content: center; align-items: center; width: 100%; display: block; margin-left: auto; margin-right: auto;'>
 		<div class='section-seperator' id='bullet_scroll_display'></div>
+			<h1 id='about' style='text-align: center;'>
+				<b>
+					About
+				</b>
+			</h1>
+			<div style='margin-left: 2em; margin-right: 2em;'>
+				We have been repairing computers for over 20 years. Our commitment to excellence ensures that you will receive the utmost quality in service. We will use our expertise to get your systems running like they were brand new again!
+			</div>
+		</div>
+		<div style='background-color: #FFC140;'>
+			<div class='section-seperator' style='height: 4em;'></div>
+			<div style='padding-bottom: 2em; padding-top: 2em; text-align: center; width: 100%; font-size: .5em;' id='is_mobile'></div>
+		</div>
 	</div>
-	<h1 id='about' style='text-align: center;'>
-		<b>
-			About
-		</b>
-	</h1>
-	<div style='margin-left: 2em; margin-right: 2em;'>
-	We have been repairing computers for over 20 years. Our commitment to excellence ensures that you will receive the utmost quality in service. We will use our expertise to get your systems running like they were brand new.
-	</div>
-	<div class='section-seperator' style='height: 10em;'></div>
-	<div style='text-align: center; width: 100%; font-size: .75em;' id='is_mobile'></div>
-	<br />
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -436,7 +433,7 @@ function set_colors() {
 function init() {
 	let page_elem;
 	let ret;
-
+/*
 	let scroll_table = document.getElementById("table-wrapper");
 	if (!scroll_table) {
 		console.log("scroll-table not found");
@@ -453,7 +450,7 @@ function init() {
 				g_scroll_item = -2;
 		});
 	}
-
+*/
 	menuItems.forEach( 
 		function(menuItem) { 
 			menuItem.addEventListener("click", toggle_menu);
@@ -501,14 +498,14 @@ function scroll_table_position() {
 
 function is_mobile() {
 	//if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
-	if (window.innerWidth < 601)
+	if (window.innerWidth < 1200)
 		return 1;
 	return 0;
 }
 
 function mobile_render() {
 	g_last_bullet = -1;
-	bullets_update();
+	//bullets_update();
 	return 1;
 }
 
