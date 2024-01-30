@@ -2,9 +2,11 @@
 <html lang='en'>
 <head>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-	<link rel='preload stylesheet 'href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+	<link rel='preload stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 	<meta charset='UTF-8'>
-	<link rel='preload stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap'>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	<title>SimplePCs - Data backup and Computer Repair for the Martinsburg West Virginia area</title>
 	<meta name='description' content='SimplePCs focuses on backing up important data like pictures or documents, repairing desktops and laptops, and helping users with computer repair and component replacement'>
     <style>
@@ -13,12 +15,7 @@
 			margin: 0;
 		}
 
-		.font-sans-serif {
-			font-family: 'Arial', sans-serif;
-		}
-
 		h1 {
-			font-family: 'Arial', sans-serif;
 			font-size: 2em;
 		}
 
@@ -27,23 +24,8 @@
 			display: flex;
 		}
 
-		h3 {
-			font-family: 'Arial', sans-serif;
-			font-size: 1em;
-			style: bold;
-		}
-
-		.section-seperator {
-			height: 10em;
-		}
-
-		@font-face {
-			font-family: 'montserrat', Sans-serif;
-			font-display: swap;
-		}
-
 		body {
-			font-family: 'montserrat', Sans-serif;
+			font-family: 'Roboto', sans-serif;
 			margin: 0;
 			width: 100%;
 			font-display: swap;
@@ -61,9 +43,17 @@
 			border-bottom-color: White;
 	     }
 
-		.indent {
-			margin: 0;
-			width: 100%;
+		.description-paragraph {
+			margin-left: 1em;
+			margin-right: 1em;
+			width: 70%;
+		}
+
+		.hero-paragraph {
+			margin-left: 1em;
+			margin-right: 1em;
+			width: 70%;
+			font-size: 1.4em;
 		}
 
 		a {
@@ -128,22 +118,15 @@
 			background-size: cover;
 			color: white;
 			font-size: large;
-		}
-
-		.ul_centered {
-			list-style-type: disc;
-			list-style-position: inside;
-			display: inline-block;
-		}
-
-		li {
-			text-align: left;
+			rel: preload;
 		}
 
 		.img0 {
+			background-image: url('pexels-azamat-esenaliev-117729.webp');
+			id='pexels-azamat-esenaliev-117729.webp';
+			alt='Hard drive opened computer repair desktop laptop pc';
 			width: 100%;
 			height: 50em;
-			background-image: url('pexels-azamat-esenaliev-117729.webp');
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -152,56 +135,47 @@
 		}
 
 		.img1 {
-			border: 1px solid #000;
-			width: 100%; 
+			content:url('pexels-marcus-aurelius-6787953.webp');
+			id='pexels-marcus-aurelius-6787953.webp';
+			alt='Older couple using laptop computer happily. Also using touchpad.';
+			padding-top: 1em;
+			width: 70%; 
 			height: auto;
 			margin-left: auto; 
 			margin-right: auto; 
 			display: block;
-			content:url('pexels-marcus-aurelius-6787953.webp');
-			id='pexels-marcus-aurelius-6787953.webp';
-			alt='pexels-marcus-aurelius-6787953.webp';
 		}
 
 		.img2 {
-			border: 1px solid #000;
-			width: 100%; 
+			content:url('pexels-olia-danilevich-4974914.webp');
+			id='pexels-olia-danilevich-4974914.webp';
+			alt='Younger gentlemen working multiple computers monitors laptops configuration';
+			padding-top: 1em;
+			width: 70%; 
 			height: auto;
 			margin-left: auto; 
 			margin-right: auto; 
 			display: block;
-			content:url('pexels-olia-danilevich-4974914.webp');
-			id='pexels-olia-danilevich-4974914.webp';
-			alt='pexels-olia-danilevich-4974914.webp';
 		}
 
 		.img3 {
-			border: 1px solid #000;
-			width: 100%; 
+			content:url('pexels-jopwell-2422293.webp');
+			id='pexels-jopwell-2422293.webp';
+			alt='Laptop computer coding studying javascript on screen learning tutoring';
+			padding-top: 1em;
+			width: 70%; 
 			height: auto;
 			margin-left: auto; 
 			margin-right: auto; 
 			display: block;
-			content:url('pexels-jopwell-2422293.webp');
-			id='pexels-jopwell-2422293.webp';
-			alt='pexels-jopwell-2422293.webp';
 		}
 
 		.img4 {
-			border: 1px solid #000;
-			width: 100%; 
-			height: auto;
-			margin-left: auto; 
-			margin-right: auto; 
-			display: block;
 			content:url('pexels-luis-gomes-546819.webp');
 			id='pexels-luis-gomes-546819.webp';
-			src='pexels-luis-gomes-546819.webp';
-		}
-
-		.img5 {
-			border: 1px solid #000;
-			width: 100%; 
+			alt='Diverse team working on networking';
+			padding-top: 1em;
+			width: 70%; 
 			height: auto;
 			margin-left: auto; 
 			margin-right: auto; 
@@ -219,22 +193,22 @@
 				justify-content: center;
 			}
 
-
 			.scroll-table {
 				width: 100vw;
 			}
 
 			.table-cell {
+				background-color: #f3c24e;
 				width: 100vw;
+				padding-bottom: 3em;
 			}
 
 			.cell-description {
 				margin-top: 2em;
 				justify-content: center; 
 				text-align: left; 
-				width: 100%;
+				width: 90%;
 				margin-left: 1em;
-
 			}
 
 			.table-row {
@@ -258,23 +232,33 @@
 			.desktop-heading {
 				display: none;
 			}
+
+			.hero-paragraph {
+				font-size: 1em;
+				width: 90%;
+			}
+
+			.description-paragraph {
+				width: 90%;
+			}
 		}
 
 		/* Desktop */
 		@media screen and (min-width: 1100px) {
 			body {
-				font-size: 1.2em;
-			}
-
-			h2 {
 				font-size: 1.3em;
 			}
 
-			.cell-description {
-				text-align: left; 
-				width: 100%;
-				margin-left: 1em;
+			h2 {
+				justify-content: center;
+				font-size: 1.5em;
+			}
 
+			.cell-description {
+				padding-left: 4em;
+				padding-right: 2em;
+				padding-bottom: 2em;
+				justify-content: center;
 			}
 
 			.scroll-table {
@@ -283,14 +267,13 @@
 			}
 
 			.table-cell {
-				padding: 1em;
-				display: flex;
+				background-color: #f3c24e;
+				width: 90%;
 			}
 
 			.table-row {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(40vw, 2fr));
-				grid-gap: 2em;
+				grid-template-columns: repeat(auto-fit, minmax(10vw, 3fr));
 			}
 
 			.hamburger {
@@ -301,7 +284,7 @@
 				align-text: right;
 				padding-top: 1em;
 				padding-left: 25vw;
-				font-size: 1em;
+				font-size: 1.2em;
 			}
 		}
 
@@ -320,33 +303,27 @@
 		@media screen and (max-width: 600px) {
 			.img0 {
 				background-image: url('pexels-azamat-esenaliev-117729_mobile.webp');
+				id='pexels-azamat-esenaliev-117729_mobile.webp';
 			}
 
 			.img1 {
 				content:url('pexels-marcus-aurelius-6787953_mobile.webp');
 				id='pexels-marcus-aurelius-6787953_mobile.webp';
-				alt='pexels-marcus-aurelius-6787953_mobile.webp';
 			}
 
 			.img2 {
 				content:url('pexels-olia-danilevich-4974914_mobile.webp');
 				id='pexels-olia-danilevich-4974914_mobile.webp';
-				alt='pexels-olia-danilevich-4974914_mobile.webp';
 			}
 
 			.img3 {
 				content:url('pexels-jopwell-2422293_mobile.webp');
 				id='pexels-jopwell-2422293_mobile.webp';
-				alt='pexels-jopwell-2422293_mobile.webp';
 			}
 
 			.img4 {
 				content:url('pexels-luis-gomes-546819_mobile.webp');
 				id='pexels-luis-gomes-546819_mobile.webp';
-				src='pexels-luis-gomes-546819_mobile.webp';
-			}
-
-			.img5 {
 			}
 		}
 
@@ -408,11 +385,9 @@
 		</h1>
 		<br />
 		<div style='display: flex; justify-content: center;'>
-		<p style='margin-left: 1em; margin-right: 1em; width: 50%;'>
-			<b>
+			<div class='hero-paragraph'>
 				For over 20 years, we have been fixing computers, troubleshooting network problems, configuring settings, and installing/removing parts. Let us simplify your PC problems!
-			</b>
-		</p>
+			</div>
 		</div>
 		<br />
 		<br />
@@ -420,13 +395,12 @@
 			<button type='button' class='button1' id='button1' onclick="window.location.href='mailto: bens_fulcrum@yahoo.com'" style='width: 10em; font-size: 1em;'>Email Us</button>
 		</div>
 	</div>
-	<div class='section-seperator'></div>
-		<h1 id='services' style='text-align: center;'>
-			<b>
-				Services
-			</b>
-		</h1>
-		<br />
+	<div style='padding-top: 5em; padding-bottom: 5em; display: flex; justify-content: center;'>
+		<div class='description-paragraph'>
+			SimplePCs is located in West Virgina in the Martinsburg area. We specialize in data backups, virus removal, and PC repair. Service calls will be considered on a case-by-case basis. Your home and office networks are important, both for your data and security. We can setup new hardware or configure devices to ensure your network runs as fast as possible!
+		</div>
+	</div>
+		<h1 id='services' style='text-align: center;'></h1>
 		<div class='scroll-table' id='scroll-table'>
 			<div class='table-row' id='table-row'>
 				<div class='table-cell'>
@@ -435,7 +409,7 @@
 						<h2>
 							Data Backup
 						</h2>
-						Pictures, documents, emails, all of your data will be treated with the utmost importance. Data will be backed up to a DVD, thumb drive, or media of your choosing.
+						Pictures, documents, emails - all of your data will be treated with the utmost importance. Data will be backed up to a DVD, thumb drive, or media of your choosing.
 					</div>
 				</div>
 				<div class='table-cell'>
@@ -445,15 +419,6 @@
 							Repair
 						</h2>
 						Repair services for laptops or desktops are available. Old computers can become like new again with our expert repair services!
-					</div>
-				</div>
-				<div class='table-cell'>
-					<div class='img3'></div>
-					<div class='cell-description'>
-						<h2>
-							Networking
-						</h2>
-						Your home or office network is important, both for your data and security. We can setup new hardware or troubleshoot to ensure your network runs as fast as possible!
 					</div>
 				</div>
 				<div class='table-cell'>
@@ -468,9 +433,8 @@
 			</div>
 		</div>
 	<br />
-	<div style="background-image: url('about_background.png'); background-repeat: repeat;">
+	<div style="background-image: url('about_background.webp'); background-repeat: repeat;">
 		<div style='text-align: center; justify-content: center; align-items: center; width: 100%; display: block; margin-left: auto; margin-right: auto;'>
-		<div class='section-seperator' id='bullet_scroll_display'></div>
 		<h1 id='about' style='text-align: center;'>
 			<b>
 				About
@@ -483,7 +447,7 @@
 		</div>
 		</div>
 		<div style='background-color: #F3C24E;'>
-			<div class='section-seperator' style='height: 4em;'></div>
+			<div style='height: 4em;'></div>
 			<div style='padding-bottom: 2em; padding-top: 2em; text-align: center; width: 100%; font-size: .5em;' id='is_mobile'></div>
 		</div>
 	</div>
@@ -497,16 +461,10 @@ var top_fg_color = "#181909";
 var bg_color = "#ecc260";
 var fg_color = "#181909";
 
-var g_scroll_item = -1;
-var g_last_bullet = -1;
 var g_listener_set = 0;
 
 window.onresize = () => {
 	page_config();
-}
-
-function scrolling_stop() {
-	g_scroll_item = -2;
 }
 
 function set_colors() {
@@ -549,26 +507,6 @@ function set_colors() {
 }
 
 function init() {
-	let page_elem;
-	let ret;
-/*
-	let scroll_table = document.getElementById("table-wrapper");
-	if (!scroll_table) {
-		console.log("scroll-table not found");
-		return 1;
-	}
-	if (!g_listener_set) {
-		scroll_table.addEventListener('scroll', function() { 
-			bullets_update();
-			let w = this.scrollWidth / scroll_table_items();
-			let diff = this.scrollLeft - (scroll_table_position() * w);
-			if (diff < 1)
-				diff *= -1;
-			if (diff > 4) // If the scroll is off by at least 5, assume it was the user
-				g_scroll_item = -2;
-		});
-	}
-*/
 	menuItems.forEach( 
 		function(menuItem) { 
 			menuItem.addEventListener("click", toggle_menu);
@@ -589,52 +527,16 @@ function page_config() {
 		return 0;
 	if (is_mobile()) {
 		page_elem.innerHTML = "Mobile website";
-		return mobile_render();
+		return 1;
 	}
 	page_elem.innerHTML = "Desktop website";
-	return desktop_render();
-}
-
-function scroll_table_items() {
-	let table_row = document.getElementById("table-row");
-	if (!table_row) {
-		console.log("table-row not found");
-		return -1;
-	}
-	return table_row.childElementCount;
-}
-
-function scroll_table_position() {
-	let table_wrapper = document.getElementById("table-wrapper");
-	if (!table_wrapper) {
-		console.log("table-wrapper not found");
-		return -1;
-	}
-	let items = scroll_table_items();
-	return Math.round((table_wrapper.scrollLeft/table_wrapper.scrollWidth)*items);
+	return 1;
 }
 
 function is_mobile() {
 	//if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
 	if (window.innerWidth < 1100)
 		return 1;
-	return 0;
-}
-
-function mobile_render() {
-	g_last_bullet = -1;
-	//bullets_update();
-	return 1;
-}
-
-function desktop_render() {
-	scrolling_stop();
-	let bullet_elem = document.getElementById("bullet_scroll_display");
-	if (!bullet_elem) {
-		console.log("bullet element not found");
-		return 1;
-	}
-	bullet_elem.innerHTML = "";
 	return 0;
 }
 
@@ -655,28 +557,6 @@ function toggle_menu() {
 		menuIcon.style.display = "none";
 	}
 	return 1;
-}
-
-function bullets_update() {
-	if (g_last_bullet === scroll_table_position()) // No need to update img
-		return 0;
-
-	let ret = "";
-	let bullet_elem = document.getElementById("bullet_scroll_display");
-	if (!bullet_elem) {
-		console.log("bullet element not found");
-		return 1;
-	}
-	for (i = 0; i < scroll_table_items(); i++) {
-		if (i === scroll_table_position()) {
-			ret += "<img src='bullet_full.png' style='width: 1em; height: auto;'></img>";
-			g_last_bullet = i;
-		} else {
-			ret += "<img src='bullet_empty.png' style='width: 1em; height: auto;'></img>"; 
-		}
-	}
-	bullet_elem.innerHTML = ret;
-	return 0;
 }
 
 init();
