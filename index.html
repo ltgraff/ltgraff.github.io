@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 <head>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<link rel='preload stylesheet 'href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+	<meta charset='UTF-8'>
+	<link rel='preload stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap'>
 	<title>SimplePCs - Data backup and Computer Repair for the Martinsburg West Virginia area</title>
 	<meta name='description' content='SimplePCs focuses on backing up important data like pictures or documents, repairing desktops and laptops, and helping users with computer repair and component replacement'>
     <style>
@@ -116,7 +116,7 @@
 		.background-image {
 			width: 100%;
 			height: 50em;
-			background-image: url('pexels-azamat-esenaliev-117729.jpg');
+			background-image: url('pexels-azamat-esenaliev-117729.webp');
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -132,6 +132,65 @@
 
 		li {
 			text-align: left;
+		}
+
+		.img0 {
+			width: 100%;
+			height: 50em;
+			background-image: url('pexels-azamat-esenaliev-117729.webp');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			color: white;
+			font-size: large;
+		}
+
+		.img1 {
+			border: 1px solid #000;
+			width: 100%; 
+			height: auto;
+			margin-left: auto; 
+			margin-right: auto; 
+			display: block;
+			content:url('pexels-marcus-aurelius-6787953.webp');
+			id='pexels-marcus-aurelius-6787953.webp';
+			alt='pexels-marcus-aurelius-6787953.webp';
+		}
+
+		.img2 {
+			border: 1px solid #000;
+			width: 100%; 
+			height: auto;
+			margin-left: auto; 
+			margin-right: auto; 
+			display: block;
+		}
+
+		.img3 {
+			border: 1px solid #000;
+			width: 100%; 
+			height: auto;
+			margin-left: auto; 
+			margin-right: auto; 
+			display: block;
+		}
+
+		.img4 {
+			border: 1px solid #000;
+			width: 100%; 
+			height: auto;
+			margin-left: auto; 
+			margin-right: auto; 
+			display: block;
+		}
+
+		.img5 {
+			border: 1px solid #000;
+			width: 100%; 
+			height: auto;
+			margin-left: auto; 
+			margin-right: auto; 
+			display: block;
 		}
 
 		.img-border {
@@ -153,6 +212,7 @@
 				font-size: 1.2em;
 				justify-content: center;
 			}
+
 
 			.scroll-table {
 				width: 100vw;
@@ -197,7 +257,7 @@
 		/* Desktop */
 		@media screen and (min-width: 1100px) {
 			body {
-				font-size: 1.5em;
+				font-size: 1.2em;
 			}
 
 			h2 {
@@ -251,6 +311,31 @@
 			}
 		}
 
+		@media screen and (max-width: 500px) {
+			.img0 {
+				background-image: url('pexels-azamat-esenaliev-117729_mobile.webp');
+				color: red;
+			}
+
+			.img1 {
+				content:url('pexels-marcus-aurelius-6787953_mobile.webp');
+				id='pexels-marcus-aurelius-6787953_mobile.webp';
+				alt='pexels-marcus-aurelius-6787953_mobile.webp';
+			}
+
+			.img2 {
+			}
+
+			.img3 {
+			}
+
+			.img4 {
+			}
+
+			.img5 {
+			}
+		}
+
 
     </style>
 </head>
@@ -292,7 +377,8 @@
 	<br />
 	<br />
 	<br />
-	<div class='background-image'>
+	<!--<div class='background-image'>-->
+	<div class='img0'>
 		<br />
 		<br />
 		<br />
@@ -330,7 +416,8 @@
 		<div class='scroll-table' id='scroll-table'>
 			<div class='table-row' id='table-row'>
 				<div class='table-cell'>
-					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt=''></img>
+					<!--					<img class='img-border' id='pexels-marcus-aurelius-6787953.webp' src='pexels-marcus-aurelius-6787953.webp' alt=''></img>-->
+					<div class='img1'></div>
 					<div class='cell-description'>
 						<h2>
 							Data Backup
@@ -339,7 +426,7 @@
 					</div>
 				</div>
 				<div class='table-cell'>
-					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt=''></img>
+					<img class='img-border' id='pexels-olia-danilevich-4974914.webp' src='pexels-olia-danilevich-4974914.webp' alt=''></img>
 					<div class='cell-description'>
 						<h2>
 							Repair
@@ -348,7 +435,7 @@
 					</div>
 				</div>
 				<div class='table-cell'>
-					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt=''></img>
+					<img class='img-border' id='pexels-jopwell-2422293.webp' src='pexels-jopwell-2422293.webp' alt=''></img>
 					<div class='cell-description'>
 						<h2>
 							Networking
@@ -357,7 +444,7 @@
 					</div>
 				</div>
 				<div class='table-cell'>
-					<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt=''></img>
+					<img class='img-border' id='pexels-luis-gomes-546819.webp' src='pexels-luis-gomes-546819.webp' alt=''></img>
 					<div class='cell-description'>
 						<h2>
 							Tutoring
