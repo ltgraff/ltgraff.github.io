@@ -23,8 +23,8 @@
 		}
 
 		h2 {
-			font-family: 'Arial', sans-serif;
-			font-size: 1.1em;
+			font-style: bold;
+			display: flex;
 		}
 
 		h3 {
@@ -149,6 +149,11 @@
 				font-size: 1.5em;
 			}
 
+			h2 {
+				font-size: 1.2em;
+				justify-content: center;
+			}
+
 			.scroll-table {
 				width: 100vw;
 			}
@@ -159,8 +164,10 @@
 
 			.cell-description {
 				margin-top: 2em;
-				text-align: center; 
+				justify-content: center; 
+				text-align: left; 
 				width: 100%;
+				margin-left: 1em;
 
 			}
 
@@ -191,6 +198,10 @@
 		@media screen and (min-width: 1100px) {
 			body {
 				font-size: 1.5em;
+			}
+
+			h2 {
+				font-size: 1.3em;
 			}
 
 			.cell-description {
@@ -321,44 +332,36 @@
 				<div class='table-cell'>
 					<img class='img-border' id='pexels-marcus-aurelius-6787953.jpg' src='pexels-marcus-aurelius-6787953.jpg' alt=''></img>
 					<div class='cell-description'>
-						<b>
-						Data Backup
-						</b>
-						<br />
-						<br />
+						<h2>
+							Data Backup
+						</h2>
 						Pictures, documents, emails, all of your data will be treated with the utmost importance. Data will be backed up to a DVD, thumb drive, or media of your choosing.
 					</div>
 				</div>
 				<div class='table-cell'>
 					<img class='img-border' id='pexels-olia-danilevich-4974914.jpg' src='pexels-olia-danilevich-4974914.jpg' alt=''></img>
 					<div class='cell-description'>
-						<b>
-						Repair
-						</b>
-						<br />
-						<br />
+						<h2>
+							Repair
+						</h2>
 						Repair services for laptops or desktops are available. Old computers can become like new again with our expert repair services!
 					</div>
 				</div>
 				<div class='table-cell'>
 					<img class='img-border' id='pexels-jopwell-2422293.jpg' src='pexels-jopwell-2422293.jpg' alt=''></img>
 					<div class='cell-description'>
-						<b>
-						Networking
-						</b>
-						<br />
-						<br />
+						<h2>
+							Networking
+						</h2>
 						Your home or office network is important, both for your data and security. We can setup new hardware or troubleshoot to ensure your network runs as fast as possible!
 					</div>
 				</div>
 				<div class='table-cell'>
 					<img class='img-border' id='pexels-luis-gomes-546819.jpg' src='pexels-luis-gomes-546819.jpg' alt=''></img>
 					<div class='cell-description'>
-						<b>
-						Tutoring
-						</b>
-						<br />
-						<br />
+						<h2>
+							Tutoring
+						</h2>
 						We offer tutoring services for various programming or scripting classes to include languages such as Java, HTML, css, Javascript, or Python. We also offer tutoring for Operating System usage or task training.
 					</div>
 				</div>
@@ -366,18 +369,20 @@
 		</div>
 	<br />
 	<div style="background-image: url('about_background.png'); background-repeat: repeat;">
-	<div style='text-align: center; justify-content: center; align-items: center; width: 100%; display: block; margin-left: auto; margin-right: auto;'>
+		<div style='text-align: center; justify-content: center; align-items: center; width: 100%; display: block; margin-left: auto; margin-right: auto;'>
 		<div class='section-seperator' id='bullet_scroll_display'></div>
-			<h1 id='about' style='text-align: center;'>
-				<b>
-					About
-				</b>
-			</h1>
+		<h1 id='about' style='text-align: center;'>
+			<b>
+				About
+			</b>
+		</h1>
+		<div style='width: 70%; text-align: left; justify-content: center; display: inline-flex;'>
 			<div style='margin-left: 2em; margin-right: 2em;'>
 				We have been repairing computers for over 20 years. Our commitment to excellence ensures that you will receive the utmost quality in service. We will use our expertise to get your systems running like they were brand new again!
 			</div>
 		</div>
-		<div style='background-color: #FFC140;'>
+		</div>
+		<div style='background-color: #F3C24E;'>
 			<div class='section-seperator' style='height: 4em;'></div>
 			<div style='padding-bottom: 2em; padding-top: 2em; text-align: center; width: 100%; font-size: .5em;' id='is_mobile'></div>
 		</div>
