@@ -29,9 +29,19 @@
 			margin: 0;
 			width: 100%;
 			font-display: swap;
+			background-color: #FBFAFE;
+			color: #181909;
+
+		}
+		
+		.table-cell {
+			background-color: rgb(254, 254, 254, 1);
+			border-radius: 25px;
+			border: 1px solid;
 		}
 
 		.fixed-top {
+			background-color: rgb(254, 254, 254);
 			position: fixed;
 			z-index: 999;
 			width: 100%;
@@ -39,8 +49,8 @@
 			display: flex;
 			margin: 0;
 			border-bottom-style: solid;
-			border-width: 2px;
-			border-bottom-color: White;
+			border-width: 1px;
+			border-bottom-color: black;
 	     }
 
 		.description-paragraph {
@@ -71,6 +81,8 @@
 			font-size: .75em; 
 			border-radius: 9px; 
 			border: 2px solid;
+			background-color: rgb(255, 255, 255);
+			color: black;
 		}
 
 		.button1:hover {
@@ -95,6 +107,7 @@
 			list-style: none;
 			justify-content: center;
 			align-items: center;
+			background-color: white;
 		}
 
 		.menu-item {
@@ -139,11 +152,10 @@
 			id='pexels-marcus-aurelius-6787953.webp';
 			alt='Older couple using laptop computer happily. Also using touchpad.';
 			padding-top: 1em;
-			width: 70%; 
+			width: 85%; 
 			height: auto;
 			margin-left: auto; 
 			margin-right: auto; 
-			display: block;
 		}
 
 		.img2 {
@@ -151,11 +163,10 @@
 			id='pexels-olia-danilevich-4974914.webp';
 			alt='Younger gentlemen working multiple computers monitors laptops configuration';
 			padding-top: 1em;
-			width: 70%; 
+			width: 85%; 
 			height: auto;
 			margin-left: auto; 
 			margin-right: auto; 
-			display: block;
 		}
 
 		.img3 {
@@ -163,11 +174,10 @@
 			id='pexels-jopwell-2422293.webp';
 			alt='Laptop computer coding studying javascript on screen learning tutoring';
 			padding-top: 1em;
-			width: 70%; 
+			width: 85%; 
 			height: auto;
 			margin-left: auto; 
 			margin-right: auto; 
-			display: block;
 		}
 
 		.img4 {
@@ -175,11 +185,10 @@
 			id='pexels-luis-gomes-546819.webp';
 			alt='Diverse team working on networking';
 			padding-top: 1em;
-			width: 70%; 
+			width: 85%; 
 			height: auto;
 			margin-left: auto; 
 			margin-right: auto; 
-			display: block;
 		}
 
 		/* Mobile */
@@ -198,7 +207,6 @@
 			}
 
 			.table-cell {
-				background-color: #f3c24e;
 				width: 100vw;
 				padding-bottom: 3em;
 			}
@@ -267,13 +275,13 @@
 			}
 
 			.table-cell {
-				background-color: #f3c24e;
 				width: 90%;
 			}
 
 			.table-row {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(10vw, 3fr));
+				margin-left: 3vw;
 			}
 
 			.hamburger {
@@ -432,25 +440,21 @@
 				</div>
 			</div>
 		</div>
-	<br />
-	<div style="background-image: url('about_background.webp'); background-repeat: repeat;">
-		<div style='text-align: center; justify-content: center; align-items: center; width: 100%; display: block; margin-left: auto; margin-right: auto;'>
-		<h1 id='about' style='text-align: center;'>
-			<b>
-				About
-			</b>
-		</h1>
-		<div style='width: 70%; text-align: left; justify-content: center; display: inline-flex;'>
-			<div style='margin-left: 2em; margin-right: 2em;'>
-				We have been repairing computers for over 20 years. Our commitment to excellence ensures that you will receive the utmost quality in service. We will use our expertise to get your systems running like they were brand new again!
-			</div>
-		</div>
-		</div>
-		<div style='background-color: #F3C24E;'>
-			<div style='height: 4em;'></div>
-			<div style='padding-bottom: 2em; padding-top: 2em; text-align: center; width: 100%; font-size: .5em;' id='is_mobile'></div>
+	<div style='height: 10vh'></div>
+	<div style='text-align: center; justify-content: center; align-items: center; width: 100%; display: block; margin-left: auto; margin-right: auto;'>
+	<h1 id='about' style='text-align: center;'>
+		<b>
+			About
+		</b>
+	</h1>
+	<div style='width: 70%; text-align: left; justify-content: center; display: inline-flex;'>
+		<div style='margin-left: 2em; margin-right: 2em;'>
+			We have been repairing computers for over 20 years. Our commitment to excellence ensures that you will receive the utmost quality in service. We will use our expertise to get your systems running like they were brand new again!
 		</div>
 	</div>
+	</div>
+	<div style='height: 4em;'></div>
+	<div style='padding-bottom: 2em; padding-top: 2em; text-align: center; width: 100%; font-size: .5em;' id='is_mobile'></div>
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -458,7 +462,8 @@
 var top_bg_color = "#ecc260";
 var top_fg_color = "#181909";
 
-var bg_color = "#ecc260";
+//var bg_color = "#ecc260";
+var bg_color = "#DFDFDF";
 var fg_color = "#181909";
 
 var g_listener_set = 0;
@@ -467,57 +472,13 @@ window.onresize = () => {
 	page_config();
 }
 
-function set_colors() {
-	const fixed_top = document.getElementById('fixed-top');
-	if (!fixed_top) {
-		console.log("Could not find fixed-top element");
-		return 0;
-	}
-	fixed_top.style.backgroundColor = top_bg_color;
-	fixed_top.style.color = top_fg_color;
-
-	const body = document.getElementById('body');
-	if (!body) {
-		console.log("Could not find body element");
-		return 0;
-	}
-	body.style.backgroundColor = bg_color;
-	body.style.color = fg_color;
-
-	const button1 = document.getElementById('button1');
-	if (!button1) {
-		console.log("Could not find button1 element");
-		return 0;
-	}
-	button1.style.backgroundColor = top_bg_color;
-	button1.style.color = top_fg_color;
-	if (!g_listener_set) {
-		button1.addEventListener('mouseenter', () => { 
-			button1.style.backgroundColor = '#000000';
-			button1.style.color = '#FFFFFF';
-		});
-		button1.addEventListener('mouseleave', () => { 
-			button1.style.backgroundColor = top_bg_color;
-			button1.style.color = top_fg_color;
-		});
-	}
-	menu.style.backgroundColor = top_bg_color;
-	menu.style.color = top_fg_color;
-	return 1;
-}
-
 function init() {
 	menuItems.forEach( 
 		function(menuItem) { 
 			menuItem.addEventListener("click", toggle_menu);
 	})
-	if (!g_listener_set) {
+	if (!g_listener_set)
 		hamburger.addEventListener("click", toggle_menu);
-		if (set_colors() != 1) {
-			console.log("set_colors failed");
-			return 0;
-		}
-	}
 	return page_config();
 }
 
@@ -540,7 +501,7 @@ function is_mobile() {
 	return 0;
 }
 
-const closeIcon= document.querySelector(".closeIcon");
+const closeIcon = document.querySelector(".closeIcon");
 const menuIcon = document.querySelector(".menuIcon");
 const menu = document.querySelector(".menu");
 const menuItems = document.querySelectorAll(".menu-item");
