@@ -2,11 +2,7 @@
 <html lang='en'>
 <head>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-	<link rel='preload stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 	<meta charset='UTF-8'>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	<title>SimplePCs - Data backup and Computer Repair for the Martinsburg West Virginia area</title>
 	<meta name='description' content='SimplePCs focuses on backing up important data like pictures or documents, repairing desktops and laptops, and helping users with computer repair and component replacement'>
     <style>
@@ -24,8 +20,13 @@
 			display: flex;
 		}
 
+		.button-container-cta {
+			display: flex; 
+			justify-content: center;
+		}
+
 		body {
-			font-family: 'Roboto', sans-serif;
+			font-family: 'Garamond', sans-serif;
 			margin: 0;
 			width: 100%;
 			font-display: swap;
@@ -96,26 +97,27 @@
 
 		.menu {
 			position: fixed;
-			transform: translateY(-400%);
-			transition: transform 0.2s;
+			transform: translateY(-100vh);
+			transition: transform 0.1s;
 			top: 0;
 			left: 0;
 			right: 0;
 			bottom: 0;
-			padding-top: 4em;
 			z-index: 9;
 			list-style: none;
-			justify-content: center;
+			padding-left: 0;
 			align-items: center;
 			background-color: white;
+			margin: 0;
 		}
 
 		.menu-item {
+			margin-left: 0;
+			margin-right: 0;
 			display: flex;
 			font-size: 2em;
 			align-items: center;
 			justify-content: center;
-			padding-right: 0em;
 		}
 
 		.show-menu {
@@ -192,7 +194,7 @@
 		}
 
 		/* Mobile */
-		@media screen and (max-width: 1100px) {
+		@media screen and (max-width: 1000px) {
 			body {
 				font-size: 1.5em;
 			}
@@ -207,8 +209,10 @@
 			}
 
 			.table-cell {
-				width: 100vw;
+				width: 90vw;
 				padding-bottom: 3em;
+				margin-left: 5vw;
+				margin-right: 5vw;
 			}
 
 			.cell-description {
@@ -226,15 +230,19 @@
 			}
 
 			.hamburger {
+				background-image: url('hamburger_button1.webp');
 				position: fixed;
-				padding-bottom: 2em;
-				padding-top: 3em;
-				width: 4em;
-				height: 4em;
-				right: 8em;
+				width: 2em;
+				height: 2em;
+				margin-top: .25em;
+				right: 5em;
 				z-index: 9999;
-				padding: .75em;
 				cursor: pointer;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				color: white;
+				font-size: large;
 			}
 
 			.desktop-heading {
@@ -252,7 +260,7 @@
 		}
 
 		/* Desktop */
-		@media screen and (min-width: 1100px) {
+		@media screen and (min-width: 1000px) {
 			body {
 				font-size: 1.3em;
 			}
@@ -289,9 +297,10 @@
 			}
 
 			.desktop-heading {
-				align-text: right;
+				display: flex;
+				justify-content: right;
+				padding-right: 5vw;
 				padding-top: 1em;
-				padding-left: 25vw;
 				font-size: 1.2em;
 			}
 		}
@@ -333,6 +342,11 @@
 				content:url('pexels-luis-gomes-546819_mobile.webp');
 				id='pexels-luis-gomes-546819_mobile.webp';
 			}
+
+			.button-container-cta {
+				justify-content: left;
+				padding-left: 4em;
+			}
 		}
 
 
@@ -345,8 +359,7 @@
 			<b>SimplePCs</b>
 		</div>
 		<ul class='menu' id='menu'>
-			<br />
-			<br />
+			<div style='height: 15%;'></div>
 			<li class='menu-item'><a href='#head'>Home</a></li>
 			<li class='menu-item'><a href='#services'>Services</a></li>
 			<li class='menu-item'><a href='#about'>About</a></li>
@@ -354,9 +367,6 @@
 		</ul>
 		<div style='width: 60%; justify-content: center; align-items: center; padding-top: 1em'>
 			<button class="hamburger">
-				<!-- material icons https://material.io/resources/icons/ -->
-				<i class="menuIcon material-icons">menu</i>
-				<i class="closeIcon material-icons">close</i>
 			</button>
 			<div class='desktop-heading'>
 				<a href="#head" style="text-decoration: underline;">Home</a>
@@ -399,7 +409,7 @@
 		</div>
 		<br />
 		<br />
-		<div style='display: flex; justify-content: center;'>
+		<div class='button-container-cta'>
 			<button type='button' class='button1' id='button1' onclick="window.location.href='mailto: bens_fulcrum@yahoo.com'" style='width: 10em; font-size: 1em;'>Email Us</button>
 		</div>
 	</div>
@@ -458,67 +468,42 @@
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
 
-// Set global color palette
-var top_bg_color = "#ecc260";
-var top_fg_color = "#181909";
+class hamburger_button {
+	constructor() {
+		this.m_menu = document.querySelector(".menu");
+		this.menu_items = document.querySelectorAll(".menu-item");
+		for (let i=0;i<this.menu_items.length;i++) 
+			this.menu_items[i].addEventListener("click", () => this.menu_toggle());
+		this.button = document.querySelector(".hamburger");
+		this.button.addEventListener("click", () => this.menu_toggle());
+	}
 
-//var bg_color = "#ecc260";
-var bg_color = "#DFDFDF";
-var fg_color = "#181909";
+	menu_close() {
+		this.m_menu.classList.remove("show-menu");
+		this.button.style.backgroundImage='url("hamburger_button1.webp")';
+	}
 
-var g_listener_set = 0;
-
-window.onresize = () => {
-	page_config();
+	menu_toggle() {
+		if (this.m_menu.classList.contains("show-menu")) {
+			this.menu_close();
+		} else {
+			this.m_menu.classList.add("show-menu");
+			this.button.style.backgroundImage='url("hamburger_button2.webp")';
+		}
+	}
 }
 
 function init() {
-	menuItems.forEach( 
-		function(menuItem) { 
-			menuItem.addEventListener("click", toggle_menu);
-	})
-	if (!g_listener_set)
-		hamburger.addEventListener("click", toggle_menu);
-	return page_config();
-}
-
-function page_config() {
-	page_elem = document.getElementById("is_mobile");
-	if (!page_elem)
-		return 0;
-	if (is_mobile()) {
-		page_elem.innerHTML = "Mobile website";
-		return 1;
+	window.onresize = () => {
+		g_hamburger.menu_close();
 	}
-	page_elem.innerHTML = "Desktop website";
-	return 1;
+
+	g_hamburger.menu_close();
 }
 
-function is_mobile() {
-	//if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
-	if (window.innerWidth < 1100)
-		return 1;
-	return 0;
-}
 
-const closeIcon = document.querySelector(".closeIcon");
-const menuIcon = document.querySelector(".menuIcon");
-const menu = document.querySelector(".menu");
-const menuItems = document.querySelectorAll(".menu-item");
-const hamburger = document.querySelector(".hamburger");
+var g_hamburger = new hamburger_button();
 
-function toggle_menu() {
-	if (menu.classList.contains("show-menu")) {
-		menu.classList.remove("show-menu");
-		closeIcon.style.display = "none";
-		menuIcon.style.display = "block";
-	} else {
-		menu.classList.add("show-menu");
-		closeIcon.style.display = "block";
-		menuIcon.style.display = "none";
-	}
-	return 1;
-}
 
 init();
 
