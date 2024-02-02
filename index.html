@@ -386,7 +386,6 @@
 	<br />
 	<br />
 	<br />
-	<!--<div class='background-image'>-->
 	<div class='img0'>
 		<br />
 		<br />
@@ -464,46 +463,60 @@
 	</div>
 	</div>
 	<div style='height: 4em;'></div>
-	<div style='padding-bottom: 2em; padding-top: 2em; text-align: center; width: 100%; font-size: .5em;' id='is_mobile'></div>
 <script>
 ////////////////////////////////////////////////////////////////////////////////////
 
 class hamburger_button {
 	constructor() {
-		this.m_menu = document.querySelector(".menu");
+		this.menu = document.querySelector(".menu");
+		if (!this.menu)
+			throw new Error(".menu not found in the DOM");
 		this.menu_items = document.querySelectorAll(".menu-item");
+		if (!this.menu_items)
+			throw new Error(".menu_items not found in the DOM");
 		for (let i=0;i<this.menu_items.length;i++) 
 			this.menu_items[i].addEventListener("click", () => this.menu_toggle());
 		this.button = document.querySelector(".hamburger");
+		if (!this.button)
+			throw new Error(".hamburger not found in the DOM");
 		this.button.addEventListener("click", () => this.menu_toggle());
+		this.open = true;
+		this.menu_close();
 	}
 
 	menu_close() {
-		this.m_menu.classList.remove("show-menu");
+		if (!this.open)
+			return;
+		this.open = false;
+		this.menu.classList.remove("show-menu");
 		this.button.style.backgroundImage='url("hamburger_button1.webp")';
 	}
 
 	menu_toggle() {
-		if (this.m_menu.classList.contains("show-menu")) {
+		if (this.menu.classList.contains("show-menu")) {
 			this.menu_close();
 		} else {
-			this.m_menu.classList.add("show-menu");
+			this.menu.classList.add("show-menu");
 			this.button.style.backgroundImage='url("hamburger_button2.webp")';
+			this.open = true;
 		}
 	}
 }
 
 function init() {
-	window.onresize = () => {
-		g_hamburger.menu_close();
+	try {
+		var hbutton = new hamburger_button();
+	} catch (error) {
+		console.log("Unable to initialize hamburger button: "+error.message);
+		return 0;
 	}
-
-	g_hamburger.menu_close();
+	window.onresize = () => {
+		hbutton.menu_close();
+	}
+	return 1;
 }
 
-
-var g_hamburger = new hamburger_button();
-
+// main
 
 init();
 
