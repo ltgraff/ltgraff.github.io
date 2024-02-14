@@ -14,17 +14,17 @@
 		}
 
 		h1 {
-			font-family: 'Garamond', Sans-serif;
+			font-family: 'Garamond', sans-serif;
 			font-size: 2em;
 		}
 
 		h2 {
-			font-family: 'Garamond', Sans-serif;
+			font-family: 'Garamond', sans-serif;
 			display: flex;
 		}
 
 		.fixed-top {
-			font-family: 'Garamond', Sans-serif;
+			font-family: 'Garamond', sans-serif;
 			background-color: rgb(254, 254, 254);
 			position: fixed;
 			z-index: 999;
@@ -43,7 +43,7 @@
 		}
 
 		body {
-			font-family: 'Garamond', serif;
+			font-family: 'Garamond', sans-serif;
 			margin: 0;
 			width: 100%;
 			font-display: swap;
@@ -51,7 +51,21 @@
 			color: #181909;
 
 		}
-		
+
+		/*
+		body::before {
+			content: "";
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background-size: 1em 1em;
+			background-image: linear-gradient(#000000 1px, transparent 1px, transparent calc(100% - 1px), #000000 calc(100% - 1px)), linear-gradient(90deg, #000000 1px, transparent 1px, transparent calc(100% - 1px), #000000 calc(100% - 1px));
+			z-index: -99;
+
+		}
+		*/
 		.table-cell {
 			background-color: rgb(254, 254, 254, 1);
 			border-radius: 25px;
@@ -68,6 +82,7 @@
 			margin-left: 1em;
 			margin-right: 1em;
 			width: 70%;
+			text-align: left;
 		}
 
 		.hero-paragraph {
@@ -384,7 +399,7 @@
 				<a href='#about' style='text-decoration: underline;'>About</a>
 				&nbsp;
 				&nbsp;
-				<a href='mailto:help@simplepcs.tech' style='text-decoration: underline;'>Email</a>
+				<a href='mailto:bens_fulcrum@yahoo.com' style='text-decoration: underline;'>Email</a>
 			</div>
 		</div>
 	</div>
@@ -455,15 +470,15 @@
 			</div>
 		</div>
 	</div>
-	<div style='height: 10vh'></div>
+	<div style='height: 5vh'></div>
 	<div style='text-align: center; justify-content: center; align-items: center; width: 100%; display: block; margin-left: auto; margin-right: auto;'>
 	<h1 id='about' style='text-align: center;'>
 		<b>
 			About
 		</b>
 	</h1>
-	<div style='width: 70%; text-align: left; justify-content: center; display: inline-flex;'>
-		<div style='margin-left: 2em; margin-right: 2em;'>
+	<div style='padding-top: 2em; padding-bottom: 5em; display: flex; justify-content: center;'>
+		<div class='description-paragraph'>
 			We have been repairing computers for over 20 years. Our commitment to excellence ensures that you will receive the utmost quality in service. We will use our expertise to get your systems running like they were brand new again!
 		</div>
 	</div>
